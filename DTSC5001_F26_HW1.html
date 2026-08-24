@@ -1,0 +1,1918 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Hannah Wilson">
+
+<title>DTSC5001_HW1</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="DTSC5001_F26_HW1_files/libs/clipboard/clipboard.min.js"></script>
+<script src="DTSC5001_F26_HW1_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="DTSC5001_F26_HW1_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="DTSC5001_F26_HW1_files/libs/quarto-html/popper.min.js"></script>
+<script src="DTSC5001_F26_HW1_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="DTSC5001_F26_HW1_files/libs/quarto-html/anchor.min.js"></script>
+<link href="DTSC5001_F26_HW1_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="DTSC5001_F26_HW1_files/libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="DTSC5001_F26_HW1_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="DTSC5001_F26_HW1_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="DTSC5001_F26_HW1_files/libs/bootstrap/bootstrap-917079515d91bccb85b543faf8aa8bb6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+</head>
+
+<body class="fullcontent quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">DTSC5001_HW1</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Hannah Wilson </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="homework-1-due-82426-7p" class="level2">
+<h2 class="anchored" data-anchor-id="homework-1-due-82426-7p">Homework 1 Due 8/24/26 7p</h2>
+<p>For the assignment below, email to me a link to a github repository with working code that does the following things. Be sure to tell me what file I am supposed to look at and how I am to run the code.</p>
+<section id="all-students" class="level3">
+<h3 class="anchored" data-anchor-id="all-students">All students:</h3>
+<ol type="1">
+<li><p>(25 points) Complete the <a href="https://docs.google.com/document/d/1Xl04oF_QFLxusBlFhFX6mEx3xEdTi1dgKeu5uYyoHCg/edit?usp=sharing">CCI Learning Module on Academic Integrity</a> by following the instruction at that link. Email me your screenshot.</p></li>
+<li><p>(35 points) Find the three best <strong>offensive</strong> metrics that you can for current P4 conference college football using data from the 2021 - 2025 regular seasons. Use a comparison that is the first part of the season to the second part of the season. Clearly state your conclusions about which metrics are <strong>best</strong> measures to use for predictive analytics about teams and describe the other metrics that you tried.</p></li>
+</ol>
+</section>
+<section id="itcs-5010-students" class="level3">
+<h3 class="anchored" data-anchor-id="itcs-5010-students">ITCS 5010 Students:</h3>
+<ol start="3" type="1">
+<li>(20 points) Repeat the above on <em>defensive</em> metrics for the same seasons.</li>
+</ol>
+</section>
+<section id="disclaimer" class="level3">
+<h3 class="anchored" data-anchor-id="disclaimer">Disclaimer</h3>
+<p>The author acknowledges the use of Claude in the preparation or completion of this assignment. Claude was used in the following way(s) in this assignment: debugging across blocks of code and reviewing assignment to provide feedback on work completed.</p>
+</section>
+<section id="imports" class="level3">
+<h3 class="anchored" data-anchor-id="imports">Imports</h3>
+<div id="8219fd77" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tabulate</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> nfl_data_py <span class="im">as</span> nfl</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.formula.api <span class="im">as</span> smf</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pyarrow</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sportsdataverse <span class="im">as</span> sdv</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> great_tables <span class="im">import</span> GT, md</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> adjustText <span class="im">import</span> adjust_text</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy <span class="im">import</span> stats</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="data-prep" class="level3">
+<h3 class="anchored" data-anchor-id="data-prep">Data Prep</h3>
+<div id="368a54d1" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load the 2021-2025 seasons</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>plays_df <span class="op">=</span> sdv.cfb.load_cfb_pbp(seasons<span class="op">=</span>[<span class="dv">2021</span>, <span class="dv">2022</span>, <span class="dv">2023</span>, <span class="dv">2024</span>, <span class="dv">2025</span>], return_as_pandas<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>games_df <span class="op">=</span> sdv.cfb.load_cfb_schedule(seasons<span class="op">=</span>[<span class="dv">2021</span>, <span class="dv">2022</span>, <span class="dv">2023</span>, <span class="dv">2024</span>, <span class="dv">2025</span>], return_as_pandas<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>final_pbp <span class="op">=</span> plays_df.merge(games_df, how<span class="op">=</span><span class="st">'left'</span>, on<span class="op">=</span>[<span class="st">'game_id'</span>, <span class="st">'season'</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="e7d1d073" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># checking data structure</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>final_pbp.head()</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>final_pbp.shape</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="33">
+<pre><code>(778447, 506)</code></pre>
+</div>
+</div>
+<div id="082f3778" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># printing the column names to see what is available for analysis</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># col_list = final_pbp.columns.to_list()</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># pd.set_option('display.max_seq_items', None)</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># print(col_list) </span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># print("\n".join(final_pbp.columns))</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="49d6de61" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>final_pbp[<span class="st">'home_conference'</span>].unique()</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>final_pbp[<span class="st">'away_conference'</span>].unique()</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>final_pbp[<span class="st">'conference_game'</span>].unique()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="35">
+<pre><code>&lt;ArrowExtensionArray&gt;
+[True, False, &lt;NA&gt;]
+Length: 3, dtype: bool[pyarrow]</code></pre>
+</div>
+</div>
+<div id="eb75ca98" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># filter to only power 4 conference games</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>p4_pbp <span class="op">=</span> final_pbp[</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    (final_pbp[<span class="st">'home_conference'</span>].isin([<span class="st">'ACC'</span>, <span class="st">'Big 12'</span>, <span class="st">'Big Ten'</span>, <span class="st">'SEC'</span>])) <span class="op">&amp;</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    (final_pbp[<span class="st">'away_conference'</span>].isin([<span class="st">'ACC'</span>, <span class="st">'Big 12'</span>, <span class="st">'Big Ten'</span>, <span class="st">'SEC'</span>])) <span class="op">&amp;</span> </span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    (final_pbp[<span class="st">'conference_game'</span>] <span class="op">==</span> <span class="va">True</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>p4_pbp[<span class="st">'half_season'</span>] <span class="op">=</span> np.where(p4_pbp[<span class="st">'week_y'</span>] <span class="op">&lt;=</span> <span class="dv">7</span>, <span class="st">'H1'</span>, <span class="st">'H2'</span>)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>redzone <span class="op">=</span> ((p4_pbp[<span class="st">'drive.end.yardLine'</span>] <span class="op">&lt;=</span> <span class="dv">20</span>) <span class="op">&amp;</span> (p4_pbp[<span class="st">'drive.isScore'</span>] <span class="op">==</span> <span class="va">True</span>)).fillna(<span class="va">False</span>).astype(<span class="bu">int</span>)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>p4_pbp[<span class="st">'red_zone_attempt'</span>] <span class="op">=</span> np.where(redzone <span class="op">==</span> <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>p4_pbp.head()</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>p4_pbp.shape</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="36">
+<pre><code>(217637, 508)</code></pre>
+</div>
+</div>
+<div id="1ea3cb0e" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># creating redzone scoring rate metric</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># check what it looks like first </span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>p4_pbp[<span class="st">'rz_play'</span>].value_counts(dropna<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co"># collapses play level data to one row per drive, checking if redzone play was a score </span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>drive_rz <span class="op">=</span> (</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    p4_pbp.groupby([<span class="st">'pos_team_id'</span>, <span class="st">'season'</span>, <span class="st">'half_season'</span>, <span class="st">'drive.id'</span>])</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    .agg(</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>        reached_rz<span class="op">=</span>(<span class="st">'rz_play'</span>, <span class="st">'max'</span>),</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>        drive_scored<span class="op">=</span>(<span class="st">'drive.isScore'</span>, <span class="st">'max'</span>)</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    .reset_index()</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="co"># creates new column for redzone scores</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>drive_rz[<span class="st">'rz_score'</span>] <span class="op">=</span> drive_rz[<span class="st">'reached_rz'</span>] <span class="op">&amp;</span> drive_rz[<span class="st">'drive_scored'</span>]</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="co"># collapses to team level and team half season</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>rz_summary <span class="op">=</span> (</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>    drive_rz.groupby([<span class="st">'season'</span>, <span class="st">'half_season'</span>, <span class="st">'pos_team_id'</span>])</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>    .agg(</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>        total_drives<span class="op">=</span>(<span class="st">'drive.id'</span>, <span class="st">'count'</span>),</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>        rz_drives<span class="op">=</span>(<span class="st">'reached_rz'</span>, <span class="st">'sum'</span>),</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>        rz_scores<span class="op">=</span>(<span class="st">'rz_score'</span>, <span class="st">'sum'</span>)</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>    .reset_index()</span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a><span class="co"># what fraction of drives ended up in the redzone</span></span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>rz_summary[<span class="st">'rz_trip_rate'</span>] <span class="op">=</span> rz_summary[<span class="st">'rz_drives'</span>] <span class="op">/</span> rz_summary[<span class="st">'total_drives'</span>]</span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a><span class="co"># conditional to only include percentage of drives that scored in the redzone</span></span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>rz_summary[<span class="st">'rz_scoring_pct'</span>] <span class="op">=</span> rz_summary[<span class="st">'rz_scores'</span>] <span class="op">/</span> rz_summary[<span class="st">'rz_drives'</span>]  </span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>rz_summary</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="37">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">season</th>
+<th data-quarto-table-cell-role="th">half_season</th>
+<th data-quarto-table-cell-role="th">pos_team_id</th>
+<th data-quarto-table-cell-role="th">total_drives</th>
+<th data-quarto-table-cell-role="th">rz_drives</th>
+<th data-quarto-table-cell-role="th">rz_scores</th>
+<th data-quarto-table-cell-role="th">rz_trip_rate</th>
+<th data-quarto-table-cell-role="th">rz_scoring_pct</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>2021</td>
+<td>H1</td>
+<td>2</td>
+<td>35</td>
+<td>8</td>
+<td>5</td>
+<td>0.228571</td>
+<td>0.625</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>2021</td>
+<td>H1</td>
+<td>8</td>
+<td>48</td>
+<td>18</td>
+<td>12</td>
+<td>0.375</td>
+<td>0.666667</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>2021</td>
+<td>H1</td>
+<td>52</td>
+<td>49</td>
+<td>18</td>
+<td>6</td>
+<td>0.367347</td>
+<td>0.333333</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>2021</td>
+<td>H1</td>
+<td>57</td>
+<td>60</td>
+<td>16</td>
+<td>10</td>
+<td>0.266667</td>
+<td>0.625</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>2021</td>
+<td>H1</td>
+<td>59</td>
+<td>53</td>
+<td>15</td>
+<td>7</td>
+<td>0.283019</td>
+<td>0.466667</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">...</th>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">583</th>
+<td>2025</td>
+<td>H2</td>
+<td>2567</td>
+<td>95</td>
+<td>31</td>
+<td>18</td>
+<td>0.326316</td>
+<td>0.580645</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">584</th>
+<td>2025</td>
+<td>H2</td>
+<td>2579</td>
+<td>58</td>
+<td>14</td>
+<td>6</td>
+<td>0.241379</td>
+<td>0.428571</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">585</th>
+<td>2025</td>
+<td>H2</td>
+<td>2628</td>
+<td>78</td>
+<td>23</td>
+<td>13</td>
+<td>0.294872</td>
+<td>0.565217</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">586</th>
+<td>2025</td>
+<td>H2</td>
+<td>2633</td>
+<td>62</td>
+<td>29</td>
+<td>19</td>
+<td>0.467742</td>
+<td>0.655172</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">587</th>
+<td>2025</td>
+<td>H2</td>
+<td>2641</td>
+<td>83</td>
+<td>30</td>
+<td>21</td>
+<td>0.361446</td>
+<td>0.7</td>
+</tr>
+</tbody>
+</table>
+
+<p>588 rows × 8 columns</p>
+</div>
+</div>
+</div>
+<div id="27803574" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>drive_rz[<span class="st">'reached_rz'</span>].value_counts(dropna<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>drive_rz.groupby(<span class="st">'reached_rz'</span>)[<span class="st">'drive_scored'</span>].mean()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="38">
+<pre><code>reached_rz
+False    0.307619
+True     0.546928
+Name: drive_scored, dtype: double[pyarrow]</code></pre>
+</div>
+</div>
+</section>
+<section id="offensive-metrics" class="level3">
+<h3 class="anchored" data-anchor-id="offensive-metrics">Offensive Metrics</h3>
+<p>The three best offensive metrics are expected points added, yards per play, and touchdowns. I reached this conclusion I testing two things: correlations between metrics using reliability and validity as targets, and averaging the correlations. For reliability, I tested whether the metrics performed consistently across the team to ensure the results aren’t coincidental and occur throughout the season. The top 3 reliability results were: EPA (0.52), YPP (0.39), and explosiveness (0.30). For validity, I tested whether these metrics had a positive correlation with points scored. The higher the correlation, the more points a team was likely to score. The top 3 validity results were EPA (0.56), touchdowns (0.45), and rushing EPA (0.40). I averaged these to create a combined final score and ranking: EPA (0.54), YPP (0.39), and touchdowns (0.34). I also tried several other metrics, including explosiveness, points per drive, sacks allowed, turnovers, redzone scoring percentage, and trip rate. Some of these metrics, like redzone scoring percentage, have high validity but low reliability, which drags down the average.</p>
+<div id="8e96a499" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># collapse play level data to drive level data to get points per drive and redzone trip rate</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>drive_level <span class="op">=</span> (</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    p4_pbp.groupby([<span class="st">'season'</span>, <span class="st">'half_season'</span>, <span class="st">'pos_team_id'</span>, <span class="st">'drive.id'</span>])</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    .agg(</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>        drive_scored<span class="op">=</span>(<span class="st">'drive.isScore'</span>, <span class="st">'max'</span>),</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>        reached_rz<span class="op">=</span>(<span class="st">'rz_play'</span>, <span class="st">'max'</span>)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    .reset_index()</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co"># collapse drive level data to team level : output is one row per team per half season</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>drive_summary <span class="op">=</span> (</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    drive_level.groupby([<span class="st">'season'</span>, <span class="st">'half_season'</span>, <span class="st">'pos_team_id'</span>])</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    .agg(</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>        points_drives<span class="op">=</span>(<span class="st">'drive_scored'</span>, <span class="st">'sum'</span>),</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>        rz_trip_rate<span class="op">=</span>(<span class="st">'reached_rz'</span>, <span class="st">'mean'</span>)</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>    .reset_index()</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a><span class="co"># summarize play level data to team level : output is one row per team per half season</span></span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>play_summary <span class="op">=</span> (</span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>    p4_pbp.groupby([<span class="st">'season'</span>, <span class="st">'half_season'</span>, <span class="st">'pos_team_id'</span>])</span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>    .agg(</span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>        epa<span class="op">=</span>(<span class="st">'EPA'</span>, <span class="st">'mean'</span>),</span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>        yards_per_play<span class="op">=</span>(<span class="st">'statYardage'</span>, <span class="st">'mean'</span>),</span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>        turnovers<span class="op">=</span>(<span class="st">'is_pos_team_turnover'</span>, <span class="st">'sum'</span>),</span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a>        sacks_allowed<span class="op">=</span>(<span class="st">'sack'</span>, <span class="st">'sum'</span>),</span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a>        touchdowns<span class="op">=</span>(<span class="st">'touchdown'</span>, <span class="st">'sum'</span>),</span>
+<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a>        rushing_epa<span class="op">=</span>(<span class="st">'rush_epa'</span>, <span class="st">'mean'</span>),</span>
+<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a>        explosiveness<span class="op">=</span>(<span class="st">'EPA_explosive'</span>, <span class="st">'mean'</span>)</span>
+<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a>    .reset_index()</span>
+<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a><span class="co"># merge the summaries into one dataframe for analysis</span></span>
+<span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a>off_drive_p4 <span class="op">=</span> pd.merge(</span>
+<span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a>    drive_summary,</span>
+<span id="cb13-39"><a href="#cb13-39" aria-hidden="true" tabindex="-1"></a>    play_summary,</span>
+<span id="cb13-40"><a href="#cb13-40" aria-hidden="true" tabindex="-1"></a>    on<span class="op">=</span>[<span class="st">'season'</span>, <span class="st">'half_season'</span>, <span class="st">'pos_team_id'</span>],</span>
+<span id="cb13-41"><a href="#cb13-41" aria-hidden="true" tabindex="-1"></a>    how<span class="op">=</span><span class="st">'left'</span></span>
+<span id="cb13-42"><a href="#cb13-42" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-43"><a href="#cb13-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-44"><a href="#cb13-44" aria-hidden="true" tabindex="-1"></a>off_drive_p4 <span class="op">=</span> off_drive_p4.drop(columns<span class="op">=</span>[<span class="st">'rz_trip_rate'</span>], errors<span class="op">=</span><span class="st">'ignore'</span>)</span>
+<span id="cb13-45"><a href="#cb13-45" aria-hidden="true" tabindex="-1"></a>off_drive_p4 <span class="op">=</span> pd.merge(</span>
+<span id="cb13-46"><a href="#cb13-46" aria-hidden="true" tabindex="-1"></a>    off_drive_p4,</span>
+<span id="cb13-47"><a href="#cb13-47" aria-hidden="true" tabindex="-1"></a>    rz_summary[[<span class="st">'season'</span>, <span class="st">'half_season'</span>, <span class="st">'pos_team_id'</span>, <span class="st">'rz_trip_rate'</span>, <span class="st">'rz_scoring_pct'</span>]],</span>
+<span id="cb13-48"><a href="#cb13-48" aria-hidden="true" tabindex="-1"></a>    on<span class="op">=</span>[<span class="st">'season'</span>, <span class="st">'half_season'</span>, <span class="st">'pos_team_id'</span>],</span>
+<span id="cb13-49"><a href="#cb13-49" aria-hidden="true" tabindex="-1"></a>    how<span class="op">=</span><span class="st">'left'</span></span>
+<span id="cb13-50"><a href="#cb13-50" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="689d407b" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># list of metrics being tested</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>metric_list <span class="op">=</span> [<span class="st">'epa'</span>, <span class="st">'points_drives'</span>, <span class="st">'yards_per_play'</span>, <span class="st">'turnovers'</span>, <span class="st">'sacks_allowed'</span>, <span class="st">'touchdowns'</span>, <span class="st">'rushing_epa'</span>, <span class="st">'explosiveness'</span>, <span class="st">'rz_trip_rate'</span>, <span class="st">'rz_scoring_pct'</span>]</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># manipulate data to be one row per team per season with columns for H1 and H2 metrics</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>metrics_combo <span class="op">=</span> off_drive_p4.pivot_table(index<span class="op">=</span>[<span class="st">'season'</span>, <span class="st">'pos_team_id'</span>], columns<span class="op">=</span><span class="st">'half_season'</span>, values<span class="op">=</span>metric_list)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co"># convert to strings from tuples</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>metrics_combo.columns <span class="op">=</span> [<span class="ss">f"</span><span class="sc">{</span>metric<span class="sc">}</span><span class="ss">_</span><span class="sc">{</span>half<span class="sc">}</span><span class="ss">"</span> <span class="cf">for</span> metric, half <span class="kw">in</span> metrics_combo.columns]</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>metrics_combo <span class="op">=</span> metrics_combo.reset_index()</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="co"># compute correlations between H1 and H2 metrics for each season</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>corr_data <span class="op">=</span> []</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> season <span class="kw">in</span> <span class="bu">sorted</span>(off_drive_p4[<span class="st">'season'</span>].unique()):</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>    season_data <span class="op">=</span> metrics_combo[metrics_combo[<span class="st">'season'</span>] <span class="op">==</span> season]</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> m <span class="kw">in</span> metric_list:</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>        col_h1 <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>m<span class="sc">}</span><span class="ss">_H1"</span></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>        col_h2 <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>m<span class="sc">}</span><span class="ss">_H2"</span></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>        valid_data <span class="op">=</span> season_data[[col_h1, col_h2]].dropna()</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>        r, p_val <span class="op">=</span> stats.pearsonr(valid_data[col_h1], valid_data[col_h2])</span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>        corr_data.append({</span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>            <span class="st">'season'</span>: season,</span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>            <span class="st">'metric'</span>: m,</span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>            <span class="st">'r'</span>: r,</span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>            <span class="st">'p_value'</span>: p_val,</span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>            <span class="st">'r_squared'</span>: r <span class="op">**</span> <span class="dv">2</span>,</span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>            <span class="st">'n_teams'</span>: <span class="bu">len</span>(valid_data)</span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a>        })</span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a>correlation_results <span class="op">=</span> pd.DataFrame(corr_data)</span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a>metric_summary <span class="op">=</span> (</span>
+<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a>    correlation_results.groupby(<span class="st">'metric'</span>)</span>
+<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a>.agg(mean_r<span class="op">=</span>(<span class="st">'r'</span>, <span class="st">'mean'</span>), min_r<span class="op">=</span>(<span class="st">'r'</span>, <span class="st">'min'</span>), max_r<span class="op">=</span>(<span class="st">'r'</span>, <span class="st">'max'</span>), std_r<span class="op">=</span>(<span class="st">'r'</span>, <span class="st">'std'</span>), n_seasons<span class="op">=</span>(<span class="st">'r'</span>, <span class="st">'count'</span>))</span>
+<span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a>    .reset_index()</span>
+<span id="cb14-40"><a href="#cb14-40" aria-hidden="true" tabindex="-1"></a>    .sort_values(<span class="st">'mean_r'</span>, ascending<span class="op">=</span><span class="va">False</span>, key<span class="op">=</span><span class="bu">abs</span>)</span>
+<span id="cb14-41"><a href="#cb14-41" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="9f1e5386" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># checking metric's stability across all five seasons</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>correlation_by_year <span class="op">=</span> correlation_results.pivot(index<span class="op">=</span><span class="st">'metric'</span>, columns<span class="op">=</span><span class="st">'season'</span>, values<span class="op">=</span><span class="st">'r'</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>correlation_by_year[<span class="st">'mean_r'</span>] <span class="op">=</span> correlation_by_year.mean(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>correlation_by_year <span class="op">=</span> correlation_by_year.sort_values(<span class="st">'mean_r'</span>, ascending<span class="op">=</span><span class="va">False</span>, key<span class="op">=</span><span class="bu">abs</span>)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>correlation_by_year</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="41">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">season</th>
+<th data-quarto-table-cell-role="th">2021</th>
+<th data-quarto-table-cell-role="th">2022</th>
+<th data-quarto-table-cell-role="th">2023</th>
+<th data-quarto-table-cell-role="th">2024</th>
+<th data-quarto-table-cell-role="th">2025</th>
+<th data-quarto-table-cell-role="th">mean_r</th>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">metric</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">epa</th>
+<td>0.475928</td>
+<td>0.657012</td>
+<td>0.567432</td>
+<td>0.416726</td>
+<td>0.509623</td>
+<td>0.525344</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">yards_per_play</th>
+<td>0.311462</td>
+<td>0.512618</td>
+<td>0.508394</td>
+<td>0.275231</td>
+<td>0.362777</td>
+<td>0.394097</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">explosiveness</th>
+<td>0.025853</td>
+<td>0.500285</td>
+<td>0.238883</td>
+<td>0.343240</td>
+<td>0.370065</td>
+<td>0.295665</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">sacks_allowed</th>
+<td>0.036337</td>
+<td>0.374744</td>
+<td>0.423681</td>
+<td>0.231631</td>
+<td>0.346167</td>
+<td>0.282512</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">touchdowns</th>
+<td>-0.005580</td>
+<td>0.415504</td>
+<td>0.145686</td>
+<td>0.320065</td>
+<td>0.237434</td>
+<td>0.222622</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">rushing_epa</th>
+<td>0.084950</td>
+<td>0.416391</td>
+<td>0.318602</td>
+<td>0.149053</td>
+<td>0.067962</td>
+<td>0.207392</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">rz_scoring_pct</th>
+<td>0.337851</td>
+<td>0.195618</td>
+<td>0.277310</td>
+<td>-0.146273</td>
+<td>0.123904</td>
+<td>0.157682</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">points_drives</th>
+<td>-0.041899</td>
+<td>0.381156</td>
+<td>0.169750</td>
+<td>0.120370</td>
+<td>-0.031432</td>
+<td>0.119589</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">turnovers</th>
+<td>-0.184642</td>
+<td>-0.309927</td>
+<td>0.192922</td>
+<td>0.073587</td>
+<td>-0.112844</td>
+<td>-0.068181</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">rz_trip_rate</th>
+<td>0.298226</td>
+<td>0.034281</td>
+<td>-0.136081</td>
+<td>0.190629</td>
+<td>-0.188612</td>
+<td>0.039689</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="3adb516f" class="cell" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># testing how variables correlate with winning. h1 prediction of h2 wins</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># turning game level rows into team level rows</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>home <span class="op">=</span> games_df[[<span class="st">'season'</span>, <span class="st">'week'</span>, <span class="st">'home_id'</span>, <span class="st">'home_points'</span>]].rename(</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    columns<span class="op">=</span>{<span class="st">'home_id'</span>: <span class="st">'pos_team_id'</span>, <span class="st">'home_points'</span>: <span class="st">'points_for'</span>}</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>away <span class="op">=</span> games_df[[<span class="st">'season'</span>, <span class="st">'week'</span>, <span class="st">'away_id'</span>, <span class="st">'away_points'</span>]].rename(</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    columns<span class="op">=</span>{<span class="st">'away_id'</span>: <span class="st">'pos_team_id'</span>, <span class="st">'away_points'</span>: <span class="st">'points_for'</span>}</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="co"># creating one game to have two rows: home and away</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>team_games <span class="op">=</span> pd.concat([home, away], ignore_index<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="co"># labeling each row's half of the season</span></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>team_games[<span class="st">'half_season'</span>] <span class="op">=</span> np.where(team_games[<span class="st">'week'</span>] <span class="op">&lt;=</span> <span class="dv">7</span>, <span class="st">'H1'</span>, <span class="st">'H2'</span>)</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a><span class="co"># averging points scored per team per half-season</span></span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>points_summary <span class="op">=</span> (</span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>    team_games.groupby([<span class="st">'season'</span>, <span class="st">'half_season'</span>, <span class="st">'pos_team_id'</span>])[<span class="st">'points_for'</span>]</span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>    .mean()</span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>    .reset_index(name<span class="op">=</span><span class="st">'points_scored'</span>)</span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a><span class="co"># turns into one row with per team per season with h1 and h2 columns</span></span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>points_wide <span class="op">=</span> points_summary.pivot(index<span class="op">=</span>[<span class="st">'season'</span>, <span class="st">'pos_team_id'</span>], columns<span class="op">=</span><span class="st">'half_season'</span>, values<span class="op">=</span><span class="st">'points_scored'</span>)</span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a>points_wide.columns <span class="op">=</span> [<span class="ss">f"points_scored_</span><span class="sc">{</span>h<span class="sc">}</span><span class="ss">"</span> <span class="cf">for</span> h <span class="kw">in</span> points_wide.columns]</span>
+<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a>points_wide <span class="op">=</span> points_wide.reset_index()</span>
+<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a>validity_data <span class="op">=</span> pd.merge(metrics_combo, points_wide, on<span class="op">=</span>[<span class="st">'season'</span>, <span class="st">'pos_team_id'</span>])</span>
+<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a><span class="co"># analyzing correlation with winning</span></span>
+<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a>validity_results <span class="op">=</span> []</span>
+<span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> season <span class="kw">in</span> <span class="bu">sorted</span>(validity_data[<span class="st">'season'</span>].unique()):</span>
+<span id="cb16-35"><a href="#cb16-35" aria-hidden="true" tabindex="-1"></a>    season_data <span class="op">=</span> validity_data[validity_data[<span class="st">'season'</span>] <span class="op">==</span> season]</span>
+<span id="cb16-36"><a href="#cb16-36" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb16-37"><a href="#cb16-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> m <span class="kw">in</span> metric_list:</span>
+<span id="cb16-38"><a href="#cb16-38" aria-hidden="true" tabindex="-1"></a>        col_h1 <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>m<span class="sc">}</span><span class="ss">_H1"</span></span>
+<span id="cb16-39"><a href="#cb16-39" aria-hidden="true" tabindex="-1"></a>        valid <span class="op">=</span> season_data[[col_h1, <span class="st">'points_scored_H2'</span>]].dropna()</span>
+<span id="cb16-40"><a href="#cb16-40" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb16-41"><a href="#cb16-41" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">len</span>(valid) <span class="op">&lt;</span> <span class="dv">3</span>:</span>
+<span id="cb16-42"><a href="#cb16-42" aria-hidden="true" tabindex="-1"></a>            <span class="cf">continue</span></span>
+<span id="cb16-43"><a href="#cb16-43" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb16-44"><a href="#cb16-44" aria-hidden="true" tabindex="-1"></a>        r, p_val <span class="op">=</span> stats.pearsonr(valid[col_h1], valid[<span class="st">'points_scored_H2'</span>])</span>
+<span id="cb16-45"><a href="#cb16-45" aria-hidden="true" tabindex="-1"></a>                </span>
+<span id="cb16-46"><a href="#cb16-46" aria-hidden="true" tabindex="-1"></a>        validity_results.append({</span>
+<span id="cb16-47"><a href="#cb16-47" aria-hidden="true" tabindex="-1"></a>            <span class="st">'season'</span>: season,</span>
+<span id="cb16-48"><a href="#cb16-48" aria-hidden="true" tabindex="-1"></a>            <span class="st">'metric'</span>: m,</span>
+<span id="cb16-49"><a href="#cb16-49" aria-hidden="true" tabindex="-1"></a>            <span class="st">'validity_r'</span>: r,</span>
+<span id="cb16-50"><a href="#cb16-50" aria-hidden="true" tabindex="-1"></a>            <span class="st">'p_value'</span>: p_val</span>
+<span id="cb16-51"><a href="#cb16-51" aria-hidden="true" tabindex="-1"></a>        })</span>
+<span id="cb16-52"><a href="#cb16-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-53"><a href="#cb16-53" aria-hidden="true" tabindex="-1"></a>validity_results <span class="op">=</span> pd.DataFrame(validity_results)</span>
+<span id="cb16-54"><a href="#cb16-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-55"><a href="#cb16-55" aria-hidden="true" tabindex="-1"></a>validity_summary <span class="op">=</span> (</span>
+<span id="cb16-56"><a href="#cb16-56" aria-hidden="true" tabindex="-1"></a>    validity_results.groupby(<span class="st">'metric'</span>)</span>
+<span id="cb16-57"><a href="#cb16-57" aria-hidden="true" tabindex="-1"></a>    .agg(mean_validity_r<span class="op">=</span>(<span class="st">'validity_r'</span>, <span class="st">'mean'</span>), n_seasons<span class="op">=</span>(<span class="st">'validity_r'</span>, <span class="st">'count'</span>))</span>
+<span id="cb16-58"><a href="#cb16-58" aria-hidden="true" tabindex="-1"></a>        .reset_index()</span>
+<span id="cb16-59"><a href="#cb16-59" aria-hidden="true" tabindex="-1"></a>    .sort_values(<span class="st">'mean_validity_r'</span>, ascending<span class="op">=</span><span class="va">False</span>, key<span class="op">=</span><span class="bu">abs</span>)</span>
+<span id="cb16-60"><a href="#cb16-60" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb16-61"><a href="#cb16-61" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb16-62"><a href="#cb16-62" aria-hidden="true" tabindex="-1"></a>validity_summary</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="42">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">metric</th>
+<th data-quarto-table-cell-role="th">mean_validity_r</th>
+<th data-quarto-table-cell-role="th">n_seasons</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>epa</td>
+<td>0.555995</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">7</th>
+<td>touchdowns</td>
+<td>0.458120</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">3</th>
+<td>rushing_epa</td>
+<td>0.403957</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">2</th>
+<td>points_drives</td>
+<td>0.400721</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">9</th>
+<td>yards_per_play</td>
+<td>0.394438</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">4</th>
+<td>rz_scoring_pct</td>
+<td>0.392313</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">1</th>
+<td>explosiveness</td>
+<td>0.259319</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">8</th>
+<td>turnovers</td>
+<td>-0.223169</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">6</th>
+<td>sacks_allowed</td>
+<td>-0.147212</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">5</th>
+<td>rz_trip_rate</td>
+<td>0.085446</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="59e11e45" class="cell" data-execution_count="13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ranking table demostrating using h1 to h2 for reliability validity of success in terms of winning</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>final_ranking <span class="op">=</span> pd.merge(</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    metric_summary[[<span class="st">'metric'</span>, <span class="st">'mean_r'</span>]].rename(columns<span class="op">=</span>{<span class="st">'mean_r'</span>: <span class="st">'mean_reliability_r'</span>}),</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    validity_summary[[<span class="st">'metric'</span>, <span class="st">'mean_validity_r'</span>]],</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    on<span class="op">=</span><span class="st">'metric'</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>final_ranking[<span class="st">'combined_score'</span>] <span class="op">=</span> (</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    final_ranking[<span class="st">'mean_reliability_r'</span>].<span class="bu">abs</span>() <span class="op">+</span> final_ranking[<span class="st">'mean_validity_r'</span>].<span class="bu">abs</span>()</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>) <span class="op">/</span> <span class="dv">2</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>final_ranking <span class="op">=</span> final_ranking.sort_values(<span class="st">'combined_score'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>final_ranking</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="43">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">metric</th>
+<th data-quarto-table-cell-role="th">mean_reliability_r</th>
+<th data-quarto-table-cell-role="th">mean_validity_r</th>
+<th data-quarto-table-cell-role="th">combined_score</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>epa</td>
+<td>0.525344</td>
+<td>0.555995</td>
+<td>0.540670</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>yards_per_play</td>
+<td>0.394097</td>
+<td>0.394438</td>
+<td>0.394267</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>touchdowns</td>
+<td>0.222622</td>
+<td>0.458120</td>
+<td>0.340371</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">5</th>
+<td>rushing_epa</td>
+<td>0.207392</td>
+<td>0.403957</td>
+<td>0.305674</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>explosiveness</td>
+<td>0.295665</td>
+<td>0.259319</td>
+<td>0.277492</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">6</th>
+<td>rz_scoring_pct</td>
+<td>0.157682</td>
+<td>0.392313</td>
+<td>0.274998</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">7</th>
+<td>points_drives</td>
+<td>0.119589</td>
+<td>0.400721</td>
+<td>0.260155</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>sacks_allowed</td>
+<td>0.282512</td>
+<td>-0.147212</td>
+<td>0.214862</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">8</th>
+<td>turnovers</td>
+<td>-0.068181</td>
+<td>-0.223169</td>
+<td>0.145675</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">9</th>
+<td>rz_trip_rate</td>
+<td>0.039689</td>
+<td>0.085446</td>
+<td>0.062567</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="defensive-metrics" class="level3">
+<h3 class="anchored" data-anchor-id="defensive-metrics">Defensive Metrics</h3>
+<p>The three best defensive metrics that I have found are defensive EPA, pass yards allowed per play, and rush yards allowed per play. I took a similar approach to the offensive metrics, testing for reliability and validity. For reliability, I tested whether the metrics performed consistently across the team to ensure the results aren’t coincidental and occur throughout the season. The top 3 reliability results were: defensive EPA (0.38), havoc (0.29), and pass yards allowed per play (0.27). Similarly for validity, I tested whether these metrics had a negative correlation with points allowed. An important note: some defensive metrics are better when lower, so I flipped the correlation on those to make interpretation easier. The top 3 validity results were defensive EPA (0.38), pass yards allowed per play (0.33), and rush yards allowed per play (0.28). I averaged these to create a combined final score ranking: defensive EPA (0.38), pass yards allowed per play (0.30), and rush yards allowed per play (0.28). I tried several other metrics listed from highest to lowest combined score: havoc, sack rate, interception rate, red zone scoring percentage allowed, red zone trip allowed, and third-down rate allowed. Some of these metrics, like red zone scoring percentage allowed, have high validity but low reliability, which drags down the average.</p>
+<div id="7cbf307f" class="cell" data-execution_count="14">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># building rush and pass yards allowed</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>p4_pbp[<span class="st">'rush_yards_allowed'</span>] <span class="op">=</span> np.where(p4_pbp[<span class="st">'rush'</span>] <span class="op">==</span> <span class="dv">1</span>, p4_pbp[<span class="st">'yds_rushed'</span>], np.nan)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>p4_pbp[<span class="st">'pass_yards_allowed'</span>] <span class="op">=</span> np.where(p4_pbp[<span class="st">'pass'</span>] <span class="op">==</span> <span class="dv">1</span>, p4_pbp[<span class="st">'yds_receiving'</span>], np.nan)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co"># collaspsing play level to team, season, and half season levels</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>def_play_summary <span class="op">=</span> (</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    p4_pbp.groupby([<span class="st">'season'</span>, <span class="st">'half_season'</span>, <span class="st">'def_pos_team_id'</span>])</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    .agg(</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>        def_epa<span class="op">=</span>(<span class="st">'def_EPA'</span>, <span class="st">'mean'</span>),</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>        havoc<span class="op">=</span>(<span class="st">'havoc'</span>, <span class="st">'mean'</span>),</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>        sack_rate<span class="op">=</span>(<span class="st">'sack'</span>, <span class="st">'mean'</span>),</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>        int_rate<span class="op">=</span>(<span class="st">'int'</span>, <span class="st">'mean'</span>),</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>        rush_yards_allowed_per_play<span class="op">=</span>(<span class="st">'rush_yards_allowed'</span>, <span class="st">'mean'</span>),</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>        pass_yards_allowed_per_play<span class="op">=</span>(<span class="st">'pass_yards_allowed'</span>, <span class="st">'mean'</span>)</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>    .reset_index()</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>    .rename(columns<span class="op">=</span>{<span class="st">'def_pos_team_id'</span>: <span class="st">'pos_team_id'</span>}))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="7c3afdd8" class="cell" data-execution_count="15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># third down allowed</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>third_down_allowed <span class="op">=</span> (</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    p4_pbp[p4_pbp[<span class="st">'down'</span>] <span class="op">==</span> <span class="dv">3</span>]</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    .groupby([<span class="st">'season'</span>, <span class="st">'half_season'</span>, <span class="st">'def_pos_team_id'</span>])[<span class="st">'down_3_end'</span>]</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    .mean()</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    .reset_index(name<span class="op">=</span><span class="st">'third_down_rate_allowed'</span>)</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    .rename(columns<span class="op">=</span>{<span class="st">'def_pos_team_id'</span>: <span class="st">'pos_team_id'</span>})</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="co"># redzone scoring allowed</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>drive_rz_allowed <span class="op">=</span> (</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>    p4_pbp.groupby([<span class="st">'season'</span>, <span class="st">'half_season'</span>, <span class="st">'def_pos_team_id'</span>, <span class="st">'drive.id'</span>])</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>    .agg(</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>        reached_rz<span class="op">=</span>(<span class="st">'rz_play'</span>, <span class="st">'max'</span>),</span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>        drive_scored<span class="op">=</span>(<span class="st">'drive.isScore'</span>, <span class="st">'max'</span>)</span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>    .reset_index()</span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>drive_rz_allowed[<span class="st">'rz_score'</span>] <span class="op">=</span> drive_rz_allowed[<span class="st">'reached_rz'</span>] <span class="op">&amp;</span> drive_rz_allowed[<span class="st">'drive_scored'</span>]</span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a><span class="co"># redzone entering allowed</span></span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>rz_summary_allowed <span class="op">=</span> (</span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a>    drive_rz_allowed.groupby([<span class="st">'season'</span>, <span class="st">'half_season'</span>, <span class="st">'def_pos_team_id'</span>])</span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>    .agg(</span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a>        total_drives<span class="op">=</span>(<span class="st">'drive.id'</span>, <span class="st">'count'</span>),</span>
+<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a>        rz_drives<span class="op">=</span>(<span class="st">'reached_rz'</span>, <span class="st">'sum'</span>),</span>
+<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a>        rz_scores<span class="op">=</span>(<span class="st">'rz_score'</span>, <span class="st">'sum'</span>)</span>
+<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a>    .reset_index()</span>
+<span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-31"><a href="#cb19-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-32"><a href="#cb19-32" aria-hidden="true" tabindex="-1"></a><span class="co"># percentages of redzone trips and scoring</span></span>
+<span id="cb19-33"><a href="#cb19-33" aria-hidden="true" tabindex="-1"></a>rz_summary_allowed[<span class="st">'rz_trip_rate_allowed'</span>] <span class="op">=</span> rz_summary_allowed[<span class="st">'rz_drives'</span>] <span class="op">/</span> rz_summary_allowed[<span class="st">'total_drives'</span>]</span>
+<span id="cb19-34"><a href="#cb19-34" aria-hidden="true" tabindex="-1"></a>rz_summary_allowed[<span class="st">'rz_scoring_pct_allowed'</span>] <span class="op">=</span> rz_summary_allowed[<span class="st">'rz_scores'</span>] <span class="op">/</span> rz_summary_allowed[<span class="st">'rz_drives'</span>]</span>
+<span id="cb19-35"><a href="#cb19-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-36"><a href="#cb19-36" aria-hidden="true" tabindex="-1"></a>rz_summary_allowed <span class="op">=</span> rz_summary_allowed.rename(columns<span class="op">=</span>{<span class="st">'def_pos_team_id'</span>: <span class="st">'pos_team_id'</span>})</span>
+<span id="cb19-37"><a href="#cb19-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-38"><a href="#cb19-38" aria-hidden="true" tabindex="-1"></a><span class="co"># points allowed</span></span>
+<span id="cb19-39"><a href="#cb19-39" aria-hidden="true" tabindex="-1"></a>home_allowed <span class="op">=</span> games_df[[<span class="st">'season'</span>, <span class="st">'week'</span>, <span class="st">'home_id'</span>, <span class="st">'away_points'</span>]].rename(</span>
+<span id="cb19-40"><a href="#cb19-40" aria-hidden="true" tabindex="-1"></a>    columns<span class="op">=</span>{<span class="st">'home_id'</span>: <span class="st">'pos_team_id'</span>, <span class="st">'away_points'</span>: <span class="st">'points_allowed'</span>}</span>
+<span id="cb19-41"><a href="#cb19-41" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-42"><a href="#cb19-42" aria-hidden="true" tabindex="-1"></a>away_allowed <span class="op">=</span> games_df[[<span class="st">'season'</span>, <span class="st">'week'</span>, <span class="st">'away_id'</span>, <span class="st">'home_points'</span>]].rename(</span>
+<span id="cb19-43"><a href="#cb19-43" aria-hidden="true" tabindex="-1"></a>    columns<span class="op">=</span>{<span class="st">'away_id'</span>: <span class="st">'pos_team_id'</span>, <span class="st">'home_points'</span>: <span class="st">'points_allowed'</span>}</span>
+<span id="cb19-44"><a href="#cb19-44" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-45"><a href="#cb19-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-46"><a href="#cb19-46" aria-hidden="true" tabindex="-1"></a>team_games_allowed <span class="op">=</span> pd.concat([home_allowed, away_allowed], ignore_index<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb19-47"><a href="#cb19-47" aria-hidden="true" tabindex="-1"></a>team_games_allowed[<span class="st">'half_season'</span>] <span class="op">=</span> np.where(team_games_allowed[<span class="st">'week'</span>] <span class="op">&lt;=</span> <span class="dv">7</span>, <span class="st">'H1'</span>, <span class="st">'H2'</span>)</span>
+<span id="cb19-48"><a href="#cb19-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-49"><a href="#cb19-49" aria-hidden="true" tabindex="-1"></a>points_allowed_summary <span class="op">=</span> (</span>
+<span id="cb19-50"><a href="#cb19-50" aria-hidden="true" tabindex="-1"></a>    team_games_allowed.groupby([<span class="st">'season'</span>, <span class="st">'half_season'</span>, <span class="st">'pos_team_id'</span>])[<span class="st">'points_allowed'</span>]</span>
+<span id="cb19-51"><a href="#cb19-51" aria-hidden="true" tabindex="-1"></a>    .mean()</span>
+<span id="cb19-52"><a href="#cb19-52" aria-hidden="true" tabindex="-1"></a>    .reset_index()</span>
+<span id="cb19-53"><a href="#cb19-53" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-54"><a href="#cb19-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-55"><a href="#cb19-55" aria-hidden="true" tabindex="-1"></a><span class="co"># merging for defensive summary metrics with end results of one row per team per half season</span></span>
+<span id="cb19-56"><a href="#cb19-56" aria-hidden="true" tabindex="-1"></a>def_summary <span class="op">=</span> pd.merge(</span>
+<span id="cb19-57"><a href="#cb19-57" aria-hidden="true" tabindex="-1"></a>    def_play_summary,</span>
+<span id="cb19-58"><a href="#cb19-58" aria-hidden="true" tabindex="-1"></a>    third_down_allowed,</span>
+<span id="cb19-59"><a href="#cb19-59" aria-hidden="true" tabindex="-1"></a>    on<span class="op">=</span>[<span class="st">'season'</span>, <span class="st">'half_season'</span>, <span class="st">'pos_team_id'</span>],</span>
+<span id="cb19-60"><a href="#cb19-60" aria-hidden="true" tabindex="-1"></a>    how<span class="op">=</span><span class="st">'left'</span></span>
+<span id="cb19-61"><a href="#cb19-61" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-62"><a href="#cb19-62" aria-hidden="true" tabindex="-1"></a>def_summary <span class="op">=</span> pd.merge(</span>
+<span id="cb19-63"><a href="#cb19-63" aria-hidden="true" tabindex="-1"></a>    def_summary,</span>
+<span id="cb19-64"><a href="#cb19-64" aria-hidden="true" tabindex="-1"></a>    rz_summary_allowed[[<span class="st">'season'</span>, <span class="st">'half_season'</span>, <span class="st">'pos_team_id'</span>, <span class="st">'rz_trip_rate_allowed'</span>, <span class="st">'rz_scoring_pct_allowed'</span>]],</span>
+<span id="cb19-65"><a href="#cb19-65" aria-hidden="true" tabindex="-1"></a>    on<span class="op">=</span>[<span class="st">'season'</span>, <span class="st">'half_season'</span>, <span class="st">'pos_team_id'</span>],</span>
+<span id="cb19-66"><a href="#cb19-66" aria-hidden="true" tabindex="-1"></a>    how<span class="op">=</span><span class="st">'left'</span></span>
+<span id="cb19-67"><a href="#cb19-67" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-68"><a href="#cb19-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-69"><a href="#cb19-69" aria-hidden="true" tabindex="-1"></a>def_summary <span class="op">=</span> pd.merge(</span>
+<span id="cb19-70"><a href="#cb19-70" aria-hidden="true" tabindex="-1"></a>    def_summary,</span>
+<span id="cb19-71"><a href="#cb19-71" aria-hidden="true" tabindex="-1"></a>    points_allowed_summary,</span>
+<span id="cb19-72"><a href="#cb19-72" aria-hidden="true" tabindex="-1"></a>    on<span class="op">=</span>[<span class="st">'season'</span>, <span class="st">'half_season'</span>, <span class="st">'pos_team_id'</span>],</span>
+<span id="cb19-73"><a href="#cb19-73" aria-hidden="true" tabindex="-1"></a>    how<span class="op">=</span><span class="st">'left'</span></span>
+<span id="cb19-74"><a href="#cb19-74" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-75"><a href="#cb19-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-76"><a href="#cb19-76" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(def_summary.shape)</span>
+<span id="cb19-77"><a href="#cb19-77" aria-hidden="true" tabindex="-1"></a>def_summary.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(588, 13)</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="45">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">season</th>
+<th data-quarto-table-cell-role="th">half_season</th>
+<th data-quarto-table-cell-role="th">pos_team_id</th>
+<th data-quarto-table-cell-role="th">def_epa</th>
+<th data-quarto-table-cell-role="th">havoc</th>
+<th data-quarto-table-cell-role="th">sack_rate</th>
+<th data-quarto-table-cell-role="th">int_rate</th>
+<th data-quarto-table-cell-role="th">rush_yards_allowed_per_play</th>
+<th data-quarto-table-cell-role="th">pass_yards_allowed_per_play</th>
+<th data-quarto-table-cell-role="th">third_down_rate_allowed</th>
+<th data-quarto-table-cell-role="th">rz_trip_rate_allowed</th>
+<th data-quarto-table-cell-role="th">rz_scoring_pct_allowed</th>
+<th data-quarto-table-cell-role="th">points_allowed</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>2021</td>
+<td>H1</td>
+<td>2</td>
+<td>-0.04555</td>
+<td>0.062937</td>
+<td>0.024476</td>
+<td>0.003497</td>
+<td>4.247934</td>
+<td>9.445783</td>
+<td>0.074074</td>
+<td>0.27027</td>
+<td>0.7</td>
+<td>19.714286</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>2021</td>
+<td>H1</td>
+<td>8</td>
+<td>-0.161381</td>
+<td>0.08982</td>
+<td>0.008982</td>
+<td>0.005988</td>
+<td>5.418750</td>
+<td>10.693333</td>
+<td>0.142857</td>
+<td>0.177778</td>
+<td>0.75</td>
+<td>26.428571</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>2021</td>
+<td>H1</td>
+<td>52</td>
+<td>-0.08969</td>
+<td>0.079156</td>
+<td>0.015831</td>
+<td>0.007916</td>
+<td>5.071429</td>
+<td>8.254717</td>
+<td>0.142857</td>
+<td>0.2</td>
+<td>0.6</td>
+<td>30.333333</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>2021</td>
+<td>H1</td>
+<td>57</td>
+<td>0.005807</td>
+<td>0.07783</td>
+<td>0.025943</td>
+<td>0.007075</td>
+<td>5.117284</td>
+<td>9.067961</td>
+<td>0.089744</td>
+<td>0.275862</td>
+<td>0.3125</td>
+<td>21.142857</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>2021</td>
+<td>H1</td>
+<td>59</td>
+<td>-0.034445</td>
+<td>0.071809</td>
+<td>0.026596</td>
+<td>0.00266</td>
+<td>4.135802</td>
+<td>9.962963</td>
+<td>0.030303</td>
+<td>0.32</td>
+<td>0.625</td>
+<td>25.666667</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="038a0742" class="cell" data-execution_count="16">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># list of metrics being tested</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>def_metric_list <span class="op">=</span> [</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'def_epa'</span>, <span class="st">'havoc'</span>, <span class="st">'sack_rate'</span>, <span class="st">'int_rate'</span>,</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'rush_yards_allowed_per_play'</span>, <span class="st">'pass_yards_allowed_per_play'</span>,</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'third_down_rate_allowed'</span>, <span class="st">'rz_trip_rate_allowed'</span>, <span class="st">'rz_scoring_pct_allowed'</span>,</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'points_allowed'</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="co"># manipulate data to be one row per team per season with columns for H1 and H2 metrics</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>def_metrics_combo <span class="op">=</span> def_summary.pivot_table(index<span class="op">=</span>[<span class="st">'season'</span>, <span class="st">'pos_team_id'</span>], columns<span class="op">=</span><span class="st">'half_season'</span>, values<span class="op">=</span>def_metric_list)</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="co"># convert to strings from tuples</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>def_metrics_combo.columns <span class="op">=</span> [<span class="ss">f"</span><span class="sc">{</span>metric<span class="sc">}</span><span class="ss">_</span><span class="sc">{</span>half<span class="sc">}</span><span class="ss">"</span> <span class="cf">for</span> metric, half <span class="kw">in</span> def_metrics_combo.columns]</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>def_metrics_combo <span class="op">=</span> def_metrics_combo.reset_index()</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a><span class="co"># compute correlations between H1 and H2 metrics for each season</span></span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>corr_data <span class="op">=</span> []</span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> season <span class="kw">in</span> <span class="bu">sorted</span>(def_summary[<span class="st">'season'</span>].unique()):</span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>    season_data <span class="op">=</span> def_metrics_combo[def_metrics_combo[<span class="st">'season'</span>] <span class="op">==</span> season]</span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> m <span class="kw">in</span> def_metric_list:</span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>        col_h1 <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>m<span class="sc">}</span><span class="ss">_H1"</span></span>
+<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a>        col_h2 <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>m<span class="sc">}</span><span class="ss">_H2"</span></span>
+<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a>        valid_data <span class="op">=</span> season_data[[col_h1, col_h2]].dropna()</span>
+<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a>        r, p_val <span class="op">=</span> stats.pearsonr(valid_data[col_h1], valid_data[col_h2])</span>
+<span id="cb21-28"><a href="#cb21-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-29"><a href="#cb21-29" aria-hidden="true" tabindex="-1"></a>        corr_data.append({</span>
+<span id="cb21-30"><a href="#cb21-30" aria-hidden="true" tabindex="-1"></a>            <span class="st">'season'</span>: season,</span>
+<span id="cb21-31"><a href="#cb21-31" aria-hidden="true" tabindex="-1"></a>            <span class="st">'metric'</span>: m,</span>
+<span id="cb21-32"><a href="#cb21-32" aria-hidden="true" tabindex="-1"></a>            <span class="st">'r'</span>: r,</span>
+<span id="cb21-33"><a href="#cb21-33" aria-hidden="true" tabindex="-1"></a>            <span class="st">'p_value'</span>: p_val,</span>
+<span id="cb21-34"><a href="#cb21-34" aria-hidden="true" tabindex="-1"></a>            <span class="st">'r_squared'</span>: r <span class="op">**</span> <span class="dv">2</span>,</span>
+<span id="cb21-35"><a href="#cb21-35" aria-hidden="true" tabindex="-1"></a>            <span class="st">'n_teams'</span>: <span class="bu">len</span>(valid_data)</span>
+<span id="cb21-36"><a href="#cb21-36" aria-hidden="true" tabindex="-1"></a>        })</span>
+<span id="cb21-37"><a href="#cb21-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-38"><a href="#cb21-38" aria-hidden="true" tabindex="-1"></a>correlation_results <span class="op">=</span> pd.DataFrame(corr_data)</span>
+<span id="cb21-39"><a href="#cb21-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-40"><a href="#cb21-40" aria-hidden="true" tabindex="-1"></a>metric_summary <span class="op">=</span> (</span>
+<span id="cb21-41"><a href="#cb21-41" aria-hidden="true" tabindex="-1"></a>    correlation_results.groupby(<span class="st">'metric'</span>)</span>
+<span id="cb21-42"><a href="#cb21-42" aria-hidden="true" tabindex="-1"></a>    .agg(mean_r<span class="op">=</span>(<span class="st">'r'</span>, <span class="st">'mean'</span>), min_r<span class="op">=</span>(<span class="st">'r'</span>, <span class="st">'min'</span>), max_r<span class="op">=</span>(<span class="st">'r'</span>, <span class="st">'max'</span>), std_r<span class="op">=</span>(<span class="st">'r'</span>, <span class="st">'std'</span>), n_seasons<span class="op">=</span>(<span class="st">'r'</span>, <span class="st">'count'</span>))</span>
+<span id="cb21-43"><a href="#cb21-43" aria-hidden="true" tabindex="-1"></a>    .reset_index()</span>
+<span id="cb21-44"><a href="#cb21-44" aria-hidden="true" tabindex="-1"></a>    .sort_values(<span class="st">'mean_r'</span>, ascending<span class="op">=</span><span class="va">False</span>, key<span class="op">=</span><span class="bu">abs</span>)</span>
+<span id="cb21-45"><a href="#cb21-45" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="676809a1" class="cell" data-execution_count="17">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># testing reliability across all five seasons</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>correlation_by_year <span class="op">=</span> correlation_results.pivot(index<span class="op">=</span><span class="st">'metric'</span>, columns<span class="op">=</span><span class="st">'season'</span>, values<span class="op">=</span><span class="st">'r'</span>)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>correlation_by_year[<span class="st">'mean_r'</span>] <span class="op">=</span> correlation_by_year.mean(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>correlation_by_year <span class="op">=</span> correlation_by_year.sort_values(<span class="st">'mean_r'</span>, ascending<span class="op">=</span><span class="va">False</span>, key<span class="op">=</span><span class="bu">abs</span>)</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>correlation_by_year</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="47">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">season</th>
+<th data-quarto-table-cell-role="th">2021</th>
+<th data-quarto-table-cell-role="th">2022</th>
+<th data-quarto-table-cell-role="th">2023</th>
+<th data-quarto-table-cell-role="th">2024</th>
+<th data-quarto-table-cell-role="th">2025</th>
+<th data-quarto-table-cell-role="th">mean_r</th>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">metric</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">points_allowed</th>
+<td>0.535649</td>
+<td>0.545631</td>
+<td>0.430765</td>
+<td>0.507270</td>
+<td>0.612976</td>
+<td>0.526458</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">def_epa</th>
+<td>0.445531</td>
+<td>0.240087</td>
+<td>0.325489</td>
+<td>0.459625</td>
+<td>0.448585</td>
+<td>0.383863</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">havoc</th>
+<td>0.246616</td>
+<td>0.352787</td>
+<td>0.320464</td>
+<td>0.399209</td>
+<td>0.150073</td>
+<td>0.293830</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">pass_yards_allowed_per_play</th>
+<td>0.296619</td>
+<td>0.208432</td>
+<td>0.229567</td>
+<td>0.305384</td>
+<td>0.317435</td>
+<td>0.271487</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">rush_yards_allowed_per_play</th>
+<td>0.395824</td>
+<td>0.125026</td>
+<td>0.316626</td>
+<td>0.223550</td>
+<td>0.293620</td>
+<td>0.270929</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">sack_rate</th>
+<td>0.192178</td>
+<td>0.152905</td>
+<td>0.324870</td>
+<td>0.201935</td>
+<td>0.228764</td>
+<td>0.220130</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">int_rate</th>
+<td>0.230361</td>
+<td>0.333163</td>
+<td>0.091825</td>
+<td>-0.024670</td>
+<td>0.388640</td>
+<td>0.203864</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">third_down_rate_allowed</th>
+<td>0.156760</td>
+<td>0.110118</td>
+<td>0.194028</td>
+<td>0.221636</td>
+<td>0.153319</td>
+<td>0.167172</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">rz_trip_rate_allowed</th>
+<td>0.154853</td>
+<td>0.164024</td>
+<td>0.071617</td>
+<td>0.078288</td>
+<td>0.010398</td>
+<td>0.095836</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">rz_scoring_pct_allowed</th>
+<td>0.268028</td>
+<td>-0.152974</td>
+<td>0.285100</td>
+<td>0.046147</td>
+<td>-0.097535</td>
+<td>0.069753</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="6c41360e" class="cell" data-execution_count="18">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># analyzing correlation with winning</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>validity_results <span class="op">=</span> []</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> season <span class="kw">in</span> <span class="bu">sorted</span>(def_metrics_combo[<span class="st">'season'</span>].unique()):</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    season_data <span class="op">=</span> def_metrics_combo[def_metrics_combo[<span class="st">'season'</span>] <span class="op">==</span> season]</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> m <span class="kw">in</span> def_metric_list:</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> m <span class="op">==</span> <span class="st">'points_allowed'</span>:</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>            <span class="cf">continue</span>  <span class="co"># don't correlate points_allowed against itself</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>        col_h1 <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>m<span class="sc">}</span><span class="ss">_H1"</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>        valid <span class="op">=</span> season_data[[col_h1, <span class="st">'points_allowed_H2'</span>]].dropna()</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">len</span>(valid) <span class="op">&lt;</span> <span class="dv">3</span>:</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>            <span class="cf">continue</span></span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>        r, p_val <span class="op">=</span> stats.pearsonr(valid[col_h1], valid[<span class="st">'points_allowed_H2'</span>])</span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>        validity_results.append({</span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>            <span class="st">'season'</span>: season,</span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>            <span class="st">'metric'</span>: m,</span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>            <span class="st">'validity_r'</span>: r,</span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>            <span class="st">'p_value'</span>: p_val</span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>        })</span>
+<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a>validity_results <span class="op">=</span> pd.DataFrame(validity_results)</span>
+<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a>validity_summary <span class="op">=</span> (</span>
+<span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a>    validity_results.groupby(<span class="st">'metric'</span>)</span>
+<span id="cb23-29"><a href="#cb23-29" aria-hidden="true" tabindex="-1"></a>    .agg(mean_validity_r<span class="op">=</span>(<span class="st">'validity_r'</span>, <span class="st">'mean'</span>), n_seasons<span class="op">=</span>(<span class="st">'validity_r'</span>, <span class="st">'count'</span>))</span>
+<span id="cb23-30"><a href="#cb23-30" aria-hidden="true" tabindex="-1"></a>    .reset_index()</span>
+<span id="cb23-31"><a href="#cb23-31" aria-hidden="true" tabindex="-1"></a>    .sort_values(<span class="st">'mean_validity_r'</span>, ascending<span class="op">=</span><span class="va">False</span>, key<span class="op">=</span><span class="bu">abs</span>)</span>
+<span id="cb23-32"><a href="#cb23-32" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb23-33"><a href="#cb23-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-34"><a href="#cb23-34" aria-hidden="true" tabindex="-1"></a><span class="co"># some defensive stats higher is better and for some lower is better. handling this by flipping the sign of the correlation for metrics where lower is better</span></span>
+<span id="cb23-35"><a href="#cb23-35" aria-hidden="true" tabindex="-1"></a>good_defense_high <span class="op">=</span> [<span class="st">'havoc'</span>, <span class="st">'sack_rate'</span>, <span class="st">'int_rate'</span>, <span class="st">'def_epa'</span>]</span>
+<span id="cb23-36"><a href="#cb23-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-37"><a href="#cb23-37" aria-hidden="true" tabindex="-1"></a>validity_summary[<span class="st">'expected_sign'</span>] <span class="op">=</span> np.where(</span>
+<span id="cb23-38"><a href="#cb23-38" aria-hidden="true" tabindex="-1"></a>    validity_summary[<span class="st">'metric'</span>].isin(good_defense_high), <span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span></span>
+<span id="cb23-39"><a href="#cb23-39" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb23-40"><a href="#cb23-40" aria-hidden="true" tabindex="-1"></a>validity_summary[<span class="st">'flipped_validity_r'</span>] <span class="op">=</span> validity_summary[<span class="st">'mean_validity_r'</span>] <span class="op">*</span> validity_summary[<span class="st">'expected_sign'</span>]</span>
+<span id="cb23-41"><a href="#cb23-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-42"><a href="#cb23-42" aria-hidden="true" tabindex="-1"></a>validity_summary</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="48">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">metric</th>
+<th data-quarto-table-cell-role="th">mean_validity_r</th>
+<th data-quarto-table-cell-role="th">n_seasons</th>
+<th data-quarto-table-cell-role="th">expected_sign</th>
+<th data-quarto-table-cell-role="th">flipped_validity_r</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>def_epa</td>
+<td>-0.376747</td>
+<td>5</td>
+<td>-1</td>
+<td>0.376747</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>pass_yards_allowed_per_play</td>
+<td>0.328953</td>
+<td>5</td>
+<td>1</td>
+<td>0.328953</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>rush_yards_allowed_per_play</td>
+<td>0.284819</td>
+<td>5</td>
+<td>1</td>
+<td>0.284819</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">5</th>
+<td>rz_scoring_pct_allowed</td>
+<td>0.259824</td>
+<td>5</td>
+<td>1</td>
+<td>0.259824</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">7</th>
+<td>sack_rate</td>
+<td>-0.254597</td>
+<td>5</td>
+<td>-1</td>
+<td>0.254597</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>havoc</td>
+<td>-0.238495</td>
+<td>5</td>
+<td>-1</td>
+<td>0.238495</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>int_rate</td>
+<td>-0.168764</td>
+<td>5</td>
+<td>-1</td>
+<td>0.168764</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">6</th>
+<td>rz_trip_rate_allowed</td>
+<td>0.114627</td>
+<td>5</td>
+<td>1</td>
+<td>0.114627</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">8</th>
+<td>third_down_rate_allowed</td>
+<td>-0.012073</td>
+<td>5</td>
+<td>1</td>
+<td>-0.012073</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="0a4b9e3b" class="cell" data-execution_count="19">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ranking table demostrating using h1 to h2 for reliability validity of success in terms of winning</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>final_ranking <span class="op">=</span> pd.merge(</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    metric_summary[[<span class="st">'metric'</span>, <span class="st">'mean_r'</span>]].rename(columns<span class="op">=</span>{<span class="st">'mean_r'</span>: <span class="st">'mean_reliability_r'</span>}),</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    validity_summary[[<span class="st">'metric'</span>, <span class="st">'flipped_validity_r'</span>]],</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    on<span class="op">=</span><span class="st">'metric'</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>final_ranking[<span class="st">'combined_score'</span>] <span class="op">=</span> (</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>    final_ranking[<span class="st">'mean_reliability_r'</span>].<span class="bu">abs</span>() <span class="op">+</span> final_ranking[<span class="st">'flipped_validity_r'</span>].<span class="bu">abs</span>()</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>) <span class="op">/</span> <span class="dv">2</span></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>final_ranking <span class="op">=</span> final_ranking.sort_values(<span class="st">'combined_score'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>final_ranking</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="49">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">metric</th>
+<th data-quarto-table-cell-role="th">mean_reliability_r</th>
+<th data-quarto-table-cell-role="th">flipped_validity_r</th>
+<th data-quarto-table-cell-role="th">combined_score</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>def_epa</td>
+<td>0.383863</td>
+<td>0.376747</td>
+<td>0.380305</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">2</th>
+<td>pass_yards_allowed_per_play</td>
+<td>0.271487</td>
+<td>0.328953</td>
+<td>0.300220</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">3</th>
+<td>rush_yards_allowed_per_play</td>
+<td>0.270929</td>
+<td>0.284819</td>
+<td>0.277874</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>havoc</td>
+<td>0.293830</td>
+<td>0.238495</td>
+<td>0.266162</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>sack_rate</td>
+<td>0.220130</td>
+<td>0.254597</td>
+<td>0.237364</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">5</th>
+<td>int_rate</td>
+<td>0.203864</td>
+<td>0.168764</td>
+<td>0.186314</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">8</th>
+<td>rz_scoring_pct_allowed</td>
+<td>0.069753</td>
+<td>0.259824</td>
+<td>0.164789</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">7</th>
+<td>rz_trip_rate_allowed</td>
+<td>0.095836</td>
+<td>0.114627</td>
+<td>0.105232</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">6</th>
+<td>third_down_rate_allowed</td>
+<td>0.167172</td>
+<td>-0.012073</td>
+<td>0.089622</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

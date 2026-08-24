@@ -1,0 +1,554 @@
+---
+title: "DTSC5001_HW1"
+author: "Hannah Wilson"
+format: html
+editor: visual
+---
+
+## Homework 1 Due 8/24/26 7p
+
+For the assignment below, email to me a link to a github repository with working code that does the following things. Be sure to tell me what file I am supposed to look at and how I am to run the code.
+
+### All students:
+
+1.  (25 points) Complete the [CCI Learning Module on Academic Integrity](https://docs.google.com/document/d/1Xl04oF_QFLxusBlFhFX6mEx3xEdTi1dgKeu5uYyoHCg/edit?usp=sharing) by following the instruction at that link. Email me your screenshot.
+
+2.  (35 points) Find the three best **offensive** metrics that you can for current P4 conference college football using data from the 2021 - 2025 regular seasons. Use a comparison that is the first part of the season to the second part of the season. Clearly state your conclusions about which metrics are **best** measures to use for predictive analytics about teams and describe the other metrics that you tried.
+
+### ITCS 5010 Students:
+
+3.  (20 points) Repeat the above on *defensive* metrics for the same seasons.
+
+### Disclaimer
+
+The author acknowledges the use of Claude in the preparation or completion of this assignment. Claude was used in the following way(s) in this assignment: debugging across blocks of code and reviewing assignment to provide feedback on work completed.
+
+### Imports
+
+```{python}
+import os
+import tabulate
+import requests
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+import nfl_data_py as nfl
+import statsmodels.formula.api as smf
+import pyarrow
+import sportsdataverse as sdv
+import polars as pl
+from great_tables import GT, md
+from adjustText import adjust_text
+from scipy import stats
+```
+
+### Data Prep
+
+```{python}
+# load the 2021-2025 seasons
+plays_df = sdv.cfb.load_cfb_pbp(seasons=[2021, 2022, 2023, 2024, 2025], return_as_pandas=True)
+games_df = sdv.cfb.load_cfb_schedule(seasons=[2021, 2022, 2023, 2024, 2025], return_as_pandas=True)
+
+final_pbp = plays_df.merge(games_df, how='left', on=['game_id', 'season'])
+```
+
+```{python}
+# checking data structure
+final_pbp.head()
+final_pbp.shape
+```
+
+```{python}
+# printing the column names to see what is available for analysis
+# col_list = final_pbp.columns.to_list()
+# pd.set_option('display.max_seq_items', None)
+# print(col_list) 
+# print("\n".join(final_pbp.columns))
+```
+
+```{python}
+final_pbp['home_conference'].unique()
+final_pbp['away_conference'].unique()
+final_pbp['conference_game'].unique()
+```
+
+```{python}
+# filter to only power 4 conference games
+
+p4_pbp = final_pbp[
+    (final_pbp['home_conference'].isin(['ACC', 'Big 12', 'Big Ten', 'SEC'])) &
+    (final_pbp['away_conference'].isin(['ACC', 'Big 12', 'Big Ten', 'SEC'])) & 
+    (final_pbp['conference_game'] == True)
+]
+
+p4_pbp['half_season'] = np.where(p4_pbp['week_y'] <= 7, 'H1', 'H2')
+
+redzone = ((p4_pbp['drive.end.yardLine'] <= 20) & (p4_pbp['drive.isScore'] == True)).fillna(False).astype(int)
+
+p4_pbp['red_zone_attempt'] = np.where(redzone == 1, 1, 0)
+
+
+p4_pbp.head()
+p4_pbp.shape
+```
+
+```{python}
+# creating redzone scoring rate metric
+
+# check what it looks like first 
+p4_pbp['rz_play'].value_counts(dropna=False)
+
+# collapses play level data to one row per drive, checking if redzone play was a score 
+drive_rz = (
+    p4_pbp.groupby(['pos_team_id', 'season', 'half_season', 'drive.id'])
+    .agg(
+        reached_rz=('rz_play', 'max'),
+        drive_scored=('drive.isScore', 'max')
+    )
+    .reset_index()
+)
+
+# creates new column for redzone scores
+drive_rz['rz_score'] = drive_rz['reached_rz'] & drive_rz['drive_scored']
+
+# collapses to team level and team half season
+rz_summary = (
+    drive_rz.groupby(['season', 'half_season', 'pos_team_id'])
+    .agg(
+        total_drives=('drive.id', 'count'),
+        rz_drives=('reached_rz', 'sum'),
+        rz_scores=('rz_score', 'sum')
+    )
+    .reset_index()
+)
+
+# what fraction of drives ended up in the redzone
+rz_summary['rz_trip_rate'] = rz_summary['rz_drives'] / rz_summary['total_drives']
+
+# conditional to only include percentage of drives that scored in the redzone
+rz_summary['rz_scoring_pct'] = rz_summary['rz_scores'] / rz_summary['rz_drives']  
+
+rz_summary
+```
+
+```{python}
+drive_rz['reached_rz'].value_counts(dropna=False)
+drive_rz.groupby('reached_rz')['drive_scored'].mean()
+```
+
+### Offensive Metrics
+
+The three best offensive metrics are expected points added, yards per play, and touchdowns. I reached this conclusion I testing two things: correlations between metrics using reliability and validity as targets, and averaging the correlations. For reliability, I tested whether the metrics performed consistently across the team to ensure the results aren't coincidental and occur throughout the season. The top 3 reliability results were: EPA (0.52), YPP (0.39), and explosiveness (0.30). For validity, I tested whether these metrics had a positive correlation with points scored. The higher the correlation, the more points a team was likely to score. The top 3 validity results were EPA (0.56), touchdowns (0.45), and rushing EPA (0.40). I averaged these to create a combined final score and ranking: EPA (0.54), YPP (0.39), and touchdowns (0.34). I also tried several other metrics, including explosiveness, points per drive, sacks allowed, turnovers, redzone scoring percentage, and trip rate. Some of these metrics, like redzone scoring percentage, have high validity but low reliability, which drags down the average.
+
+```{python}
+
+# collapse play level data to drive level data to get points per drive and redzone trip rate
+drive_level = (
+    p4_pbp.groupby(['season', 'half_season', 'pos_team_id', 'drive.id'])
+    .agg(
+        drive_scored=('drive.isScore', 'max'),
+        reached_rz=('rz_play', 'max')
+    )
+    .reset_index()
+)
+
+# collapse drive level data to team level : output is one row per team per half season
+drive_summary = (
+    drive_level.groupby(['season', 'half_season', 'pos_team_id'])
+    .agg(
+        points_drives=('drive_scored', 'sum'),
+        rz_trip_rate=('reached_rz', 'mean')
+    )
+    .reset_index()
+)
+
+# summarize play level data to team level : output is one row per team per half season
+play_summary = (
+    p4_pbp.groupby(['season', 'half_season', 'pos_team_id'])
+    .agg(
+        epa=('EPA', 'mean'),
+        yards_per_play=('statYardage', 'mean'),
+        turnovers=('is_pos_team_turnover', 'sum'),
+        sacks_allowed=('sack', 'sum'),
+        touchdowns=('touchdown', 'sum'),
+        rushing_epa=('rush_epa', 'mean'),
+        explosiveness=('EPA_explosive', 'mean')
+    )
+    .reset_index()
+)
+
+# merge the summaries into one dataframe for analysis
+off_drive_p4 = pd.merge(
+    drive_summary,
+    play_summary,
+    on=['season', 'half_season', 'pos_team_id'],
+    how='left'
+)
+
+off_drive_p4 = off_drive_p4.drop(columns=['rz_trip_rate'], errors='ignore')
+off_drive_p4 = pd.merge(
+    off_drive_p4,
+    rz_summary[['season', 'half_season', 'pos_team_id', 'rz_trip_rate', 'rz_scoring_pct']],
+    on=['season', 'half_season', 'pos_team_id'],
+    how='left'
+)
+```
+
+```{python}
+# list of metrics being tested
+metric_list = ['epa', 'points_drives', 'yards_per_play', 'turnovers', 'sacks_allowed', 'touchdowns', 'rushing_epa', 'explosiveness', 'rz_trip_rate', 'rz_scoring_pct']
+
+# manipulate data to be one row per team per season with columns for H1 and H2 metrics
+metrics_combo = off_drive_p4.pivot_table(index=['season', 'pos_team_id'], columns='half_season', values=metric_list)
+
+# convert to strings from tuples
+metrics_combo.columns = [f"{metric}_{half}" for metric, half in metrics_combo.columns]
+metrics_combo = metrics_combo.reset_index()
+
+# compute correlations between H1 and H2 metrics for each season
+corr_data = []
+
+for season in sorted(off_drive_p4['season'].unique()):
+    season_data = metrics_combo[metrics_combo['season'] == season]
+
+    for m in metric_list:
+        col_h1 = f"{m}_H1"
+        col_h2 = f"{m}_H2"
+
+        valid_data = season_data[[col_h1, col_h2]].dropna()
+
+        r, p_val = stats.pearsonr(valid_data[col_h1], valid_data[col_h2])
+
+        corr_data.append({
+            'season': season,
+            'metric': m,
+            'r': r,
+            'p_value': p_val,
+            'r_squared': r ** 2,
+            'n_teams': len(valid_data)
+        })
+
+correlation_results = pd.DataFrame(corr_data)
+
+metric_summary = (
+    correlation_results.groupby('metric')
+.agg(mean_r=('r', 'mean'), min_r=('r', 'min'), max_r=('r', 'max'), std_r=('r', 'std'), n_seasons=('r', 'count'))
+    .reset_index()
+    .sort_values('mean_r', ascending=False, key=abs)
+)
+```
+
+```{python}
+# checking metric's stability across all five seasons
+correlation_by_year = correlation_results.pivot(index='metric', columns='season', values='r')
+correlation_by_year['mean_r'] = correlation_by_year.mean(axis=1)
+correlation_by_year = correlation_by_year.sort_values('mean_r', ascending=False, key=abs)
+
+correlation_by_year
+```
+
+```{python}
+
+# testing how variables correlate with winning. h1 prediction of h2 wins
+
+# turning game level rows into team level rows
+home = games_df[['season', 'week', 'home_id', 'home_points']].rename(
+    columns={'home_id': 'pos_team_id', 'home_points': 'points_for'}
+)
+away = games_df[['season', 'week', 'away_id', 'away_points']].rename(
+    columns={'away_id': 'pos_team_id', 'away_points': 'points_for'}
+)
+
+# creating one game to have two rows: home and away
+team_games = pd.concat([home, away], ignore_index=True)
+
+# labeling each row's half of the season
+team_games['half_season'] = np.where(team_games['week'] <= 7, 'H1', 'H2')
+
+# averging points scored per team per half-season
+points_summary = (
+    team_games.groupby(['season', 'half_season', 'pos_team_id'])['points_for']
+    .mean()
+    .reset_index(name='points_scored')
+)
+
+# turns into one row with per team per season with h1 and h2 columns
+points_wide = points_summary.pivot(index=['season', 'pos_team_id'], columns='half_season', values='points_scored')
+points_wide.columns = [f"points_scored_{h}" for h in points_wide.columns]
+points_wide = points_wide.reset_index()
+
+validity_data = pd.merge(metrics_combo, points_wide, on=['season', 'pos_team_id'])
+
+# analyzing correlation with winning
+validity_results = []
+
+for season in sorted(validity_data['season'].unique()):
+    season_data = validity_data[validity_data['season'] == season]
+    
+    for m in metric_list:
+        col_h1 = f"{m}_H1"
+        valid = season_data[[col_h1, 'points_scored_H2']].dropna()
+        
+        if len(valid) < 3:
+            continue
+            
+        r, p_val = stats.pearsonr(valid[col_h1], valid['points_scored_H2'])
+                
+        validity_results.append({
+            'season': season,
+            'metric': m,
+            'validity_r': r,
+            'p_value': p_val
+        })
+
+validity_results = pd.DataFrame(validity_results)
+
+validity_summary = (
+    validity_results.groupby('metric')
+    .agg(mean_validity_r=('validity_r', 'mean'), n_seasons=('validity_r', 'count'))
+        .reset_index()
+    .sort_values('mean_validity_r', ascending=False, key=abs)
+    )
+    
+validity_summary
+```
+
+```{python}
+# ranking table demostrating using h1 to h2 for reliability validity of success in terms of winning
+final_ranking = pd.merge(
+    metric_summary[['metric', 'mean_r']].rename(columns={'mean_r': 'mean_reliability_r'}),
+    validity_summary[['metric', 'mean_validity_r']],
+    on='metric'
+)
+
+final_ranking['combined_score'] = (
+    final_ranking['mean_reliability_r'].abs() + final_ranking['mean_validity_r'].abs()
+) / 2
+
+final_ranking = final_ranking.sort_values('combined_score', ascending=False)
+final_ranking
+```
+
+### Defensive Metrics
+
+The three best defensive metrics that I have found are defensive EPA, pass yards allowed per play, and rush yards allowed per play. I took a similar approach to the offensive metrics, testing for reliability and validity. For reliability, I tested whether the metrics performed consistently across the team to ensure the results aren't coincidental and occur throughout the season. The top 3 reliability results were: defensive EPA (0.38), havoc (0.29), and pass yards allowed per play (0.27). Similarly for validity, I tested whether these metrics had a negative correlation with points allowed. An important note: some defensive metrics are better when lower, so I flipped the correlation on those to make interpretation easier. The top 3 validity results were defensive EPA (0.38), pass yards allowed per play (0.33), and rush yards allowed per play (0.28). I averaged these to create a combined final score ranking: defensive EPA (0.38), pass yards allowed per play (0.30), and rush yards allowed per play (0.28). I tried several other metrics listed from highest to lowest combined score: havoc, sack rate, interception rate, red zone scoring percentage allowed, red zone trip allowed, and third-down rate allowed. Some of these metrics, like red zone scoring percentage allowed, have high validity but low reliability, which drags down the average.
+
+```{python}
+# building rush and pass yards allowed
+p4_pbp['rush_yards_allowed'] = np.where(p4_pbp['rush'] == 1, p4_pbp['yds_rushed'], np.nan)
+p4_pbp['pass_yards_allowed'] = np.where(p4_pbp['pass'] == 1, p4_pbp['yds_receiving'], np.nan)
+
+# collaspsing play level to team, season, and half season levels
+def_play_summary = (
+    p4_pbp.groupby(['season', 'half_season', 'def_pos_team_id'])
+    .agg(
+        def_epa=('def_EPA', 'mean'),
+        havoc=('havoc', 'mean'),
+        sack_rate=('sack', 'mean'),
+        int_rate=('int', 'mean'),
+        rush_yards_allowed_per_play=('rush_yards_allowed', 'mean'),
+        pass_yards_allowed_per_play=('pass_yards_allowed', 'mean')
+    )
+    .reset_index()
+    .rename(columns={'def_pos_team_id': 'pos_team_id'}))
+
+```
+
+```{python}
+# third down allowed
+third_down_allowed = (
+    p4_pbp[p4_pbp['down'] == 3]
+    .groupby(['season', 'half_season', 'def_pos_team_id'])['down_3_end']
+    .mean()
+    .reset_index(name='third_down_rate_allowed')
+    .rename(columns={'def_pos_team_id': 'pos_team_id'})
+)
+
+# redzone scoring allowed
+drive_rz_allowed = (
+    p4_pbp.groupby(['season', 'half_season', 'def_pos_team_id', 'drive.id'])
+    .agg(
+        reached_rz=('rz_play', 'max'),
+        drive_scored=('drive.isScore', 'max')
+    )
+    .reset_index()
+)
+drive_rz_allowed['rz_score'] = drive_rz_allowed['reached_rz'] & drive_rz_allowed['drive_scored']
+
+# redzone entering allowed
+rz_summary_allowed = (
+    drive_rz_allowed.groupby(['season', 'half_season', 'def_pos_team_id'])
+    .agg(
+        total_drives=('drive.id', 'count'),
+        rz_drives=('reached_rz', 'sum'),
+        rz_scores=('rz_score', 'sum')
+    )
+    .reset_index()
+)
+
+# percentages of redzone trips and scoring
+rz_summary_allowed['rz_trip_rate_allowed'] = rz_summary_allowed['rz_drives'] / rz_summary_allowed['total_drives']
+rz_summary_allowed['rz_scoring_pct_allowed'] = rz_summary_allowed['rz_scores'] / rz_summary_allowed['rz_drives']
+
+rz_summary_allowed = rz_summary_allowed.rename(columns={'def_pos_team_id': 'pos_team_id'})
+
+# points allowed
+home_allowed = games_df[['season', 'week', 'home_id', 'away_points']].rename(
+    columns={'home_id': 'pos_team_id', 'away_points': 'points_allowed'}
+)
+away_allowed = games_df[['season', 'week', 'away_id', 'home_points']].rename(
+    columns={'away_id': 'pos_team_id', 'home_points': 'points_allowed'}
+)
+
+team_games_allowed = pd.concat([home_allowed, away_allowed], ignore_index=True)
+team_games_allowed['half_season'] = np.where(team_games_allowed['week'] <= 7, 'H1', 'H2')
+
+points_allowed_summary = (
+    team_games_allowed.groupby(['season', 'half_season', 'pos_team_id'])['points_allowed']
+    .mean()
+    .reset_index()
+)
+
+# merging for defensive summary metrics with end results of one row per team per half season
+def_summary = pd.merge(
+    def_play_summary,
+    third_down_allowed,
+    on=['season', 'half_season', 'pos_team_id'],
+    how='left'
+)
+def_summary = pd.merge(
+    def_summary,
+    rz_summary_allowed[['season', 'half_season', 'pos_team_id', 'rz_trip_rate_allowed', 'rz_scoring_pct_allowed']],
+    on=['season', 'half_season', 'pos_team_id'],
+    how='left'
+)
+
+def_summary = pd.merge(
+    def_summary,
+    points_allowed_summary,
+    on=['season', 'half_season', 'pos_team_id'],
+    how='left'
+)
+
+print(def_summary.shape)
+def_summary.head()
+```
+
+```{python}
+# list of metrics being tested
+def_metric_list = [
+    'def_epa', 'havoc', 'sack_rate', 'int_rate',
+    'rush_yards_allowed_per_play', 'pass_yards_allowed_per_play',
+    'third_down_rate_allowed', 'rz_trip_rate_allowed', 'rz_scoring_pct_allowed',
+    'points_allowed'
+]
+# manipulate data to be one row per team per season with columns for H1 and H2 metrics
+def_metrics_combo = def_summary.pivot_table(index=['season', 'pos_team_id'], columns='half_season', values=def_metric_list)
+
+# convert to strings from tuples
+def_metrics_combo.columns = [f"{metric}_{half}" for metric, half in def_metrics_combo.columns]
+def_metrics_combo = def_metrics_combo.reset_index()
+
+# compute correlations between H1 and H2 metrics for each season
+corr_data = []
+
+for season in sorted(def_summary['season'].unique()):
+    season_data = def_metrics_combo[def_metrics_combo['season'] == season]
+
+    for m in def_metric_list:
+        col_h1 = f"{m}_H1"
+        col_h2 = f"{m}_H2"
+
+        valid_data = season_data[[col_h1, col_h2]].dropna()
+
+        r, p_val = stats.pearsonr(valid_data[col_h1], valid_data[col_h2])
+
+        corr_data.append({
+            'season': season,
+            'metric': m,
+            'r': r,
+            'p_value': p_val,
+            'r_squared': r ** 2,
+            'n_teams': len(valid_data)
+        })
+
+correlation_results = pd.DataFrame(corr_data)
+
+metric_summary = (
+    correlation_results.groupby('metric')
+    .agg(mean_r=('r', 'mean'), min_r=('r', 'min'), max_r=('r', 'max'), std_r=('r', 'std'), n_seasons=('r', 'count'))
+    .reset_index()
+    .sort_values('mean_r', ascending=False, key=abs)
+)
+```
+
+```{python}
+# testing reliability across all five seasons
+correlation_by_year = correlation_results.pivot(index='metric', columns='season', values='r')
+correlation_by_year['mean_r'] = correlation_by_year.mean(axis=1)
+correlation_by_year = correlation_by_year.sort_values('mean_r', ascending=False, key=abs)
+
+correlation_by_year
+```
+
+```{python}
+# analyzing correlation with winning
+validity_results = []
+
+for season in sorted(def_metrics_combo['season'].unique()):
+    season_data = def_metrics_combo[def_metrics_combo['season'] == season]
+
+    for m in def_metric_list:
+        if m == 'points_allowed':
+            continue  # don't correlate points_allowed against itself
+        col_h1 = f"{m}_H1"
+        valid = season_data[[col_h1, 'points_allowed_H2']].dropna()
+
+        if len(valid) < 3:
+            continue
+
+        r, p_val = stats.pearsonr(valid[col_h1], valid['points_allowed_H2'])
+
+        validity_results.append({
+            'season': season,
+            'metric': m,
+            'validity_r': r,
+            'p_value': p_val
+        })
+
+validity_results = pd.DataFrame(validity_results)
+
+validity_summary = (
+    validity_results.groupby('metric')
+    .agg(mean_validity_r=('validity_r', 'mean'), n_seasons=('validity_r', 'count'))
+    .reset_index()
+    .sort_values('mean_validity_r', ascending=False, key=abs)
+)
+
+# some defensive stats higher is better and for some lower is better. handling this by flipping the sign of the correlation for metrics where lower is better
+good_defense_high = ['havoc', 'sack_rate', 'int_rate', 'def_epa']
+
+validity_summary['expected_sign'] = np.where(
+    validity_summary['metric'].isin(good_defense_high), -1, 1
+)
+validity_summary['flipped_validity_r'] = validity_summary['mean_validity_r'] * validity_summary['expected_sign']
+
+validity_summary
+```
+
+```{python}
+# ranking table demostrating using h1 to h2 for reliability validity of success in terms of winning
+final_ranking = pd.merge(
+    metric_summary[['metric', 'mean_r']].rename(columns={'mean_r': 'mean_reliability_r'}),
+    validity_summary[['metric', 'flipped_validity_r']],
+    on='metric'
+)
+
+final_ranking['combined_score'] = (
+    final_ranking['mean_reliability_r'].abs() + final_ranking['flipped_validity_r'].abs()
+) / 2
+
+final_ranking = final_ranking.sort_values('combined_score', ascending=False)
+final_ranking
+```
