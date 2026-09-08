@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025 CFB Post-Game Win Probability</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- supabase JS client — allows querying the database directly from the browser -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- Chart.js — used to render the per-team calibration chart -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+
+    <!-- tom select — turns a plain <select> into a searchable dropdown -->
+    <link href="https://cdn.jsdelivr.net/npm/tom-select@2/dist/css/tom-select.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@2/dist/js/tom-select.complete.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>2025 CFB Post-Game Win Probability</h1>
+        <p class="subtitle">Select a team to view their game-by-game win probabilities</p>
+    </header>
+
+    <main>
+        <!-- team selector — using tom select -->
+        <section class="controls">
+            <label for="team-select">Choose a team:</label>
+            <select id="team-select" placeholder="Search for a team...">
+                <option value="">Search for a team...</option>
+            </select>
+        </section>
+
+        <!-- per-game win probability stacked bar chart (all games) -->
+        <section id="game-chart-section" class="hidden">
+            <h2 id="game-chart-title"></h2>
+            <canvas id="game-bar-chart"></canvas>
+        </section>
+
+        <!-- game table -->
+        <section id="table-section" class="hidden">
+            <h2>Game Results</h2>
+            <div class="table-wrapper">
+                <table id="games-table">
+                    <thead>
+                        <tr>
+                            <th>Week</th>
+                            <th>Opponent</th>
+                            <th>Home/Away</th>
+                            <th>Score</th>
+                            <th>Win Prob</th>
+                            <th>Result</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- footer describing model used -->
+        <section id="model-info" class="hidden">
+            <h3>About the Model</h3>
+            <p>
+                Win probabilities are computed using a logistic regression model trained on
+                2020–2024 FBS game data. The model uses game-level differential features:
+                turnover margin, passing yards differential, rushing yards differential,
+                first downs differential, third-down conversion rate differential,
+                penalty yards differential, time of possession differential, and home-field advantage.
+            </p>
+        </section>
+    </main>
+
+    <!-- app logic - load from supabase  -->
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+/* base styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: #f5f5f5;
+    color: #1a1a1a;
+    line-height: 1.6;
+}
+
+/* header */
+
+header {
+    background-color: #1b2a4a;
+    color: white;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.3rem;
+}
+
+.subtitle {
+    color: #a0b0cc;
+    font-size: 0.95rem;
+}
+
+/* main content area */
+
+main {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* team selector ssection */
+
+.controls {
+    margin-bottom: 2rem;
+}
+
+.controls label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 1.05rem;
+}
+
+/* force search to fill container */
+.ts-wrapper {
+    width: 100%;
+}
+
+/* per-game bar chart styling */
+
+#game-chart-section {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#game-chart-section h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #1b2a4a;
+}
+
+/* game table styling */
+
+#table-section {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#table-section h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #1b2a4a;
+}
+
+/* adaption to small screen by alllowing scrollablity */
+.table-wrapper {
+    overflow-x: auto;
+}
+
+#games-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+#games-table th {
+    background-color: #1b2a4a;
+    color: white;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 600;
+}
+
+#games-table td {
+    padding: 0.65rem 1rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* alternate shading of rows for easier reading */
+#games-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#games-table tbody tr:hover {
+    background-color: #eef2f7;
+}
+
+/* styling for win/loss */
+.result-win {
+    color: #2e7d32;
+    font-weight: 700;
+}
+
+.result-loss {
+    color: #c62828;
+    font-weight: 700;
+}
+
+/* footer about model */
+
+#model-info {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#model-info h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+    color: #1b2a4a;
+}
+
+#model-info p {
+    color: #555;
+    font-size: 0.9rem;
+}
+
+/* hides sections unless team is selected*/
+
+.hidden {
+    display: none;
+}
+
+/* adaptation for small screens */
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1.3rem;
+    }
+
+    main {
+        padding: 0 0.5rem;
+    }
+
+    #games-table th,
+    #games-table td {
+        padding: 0.5rem 0.6rem;
+        font-size: 0.85rem;
+    }
+}
