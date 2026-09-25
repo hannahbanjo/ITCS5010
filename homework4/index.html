@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFB Team Ratings 2021–2025</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+</head>
+<body>
+    <header>
+        <h1>College Football<br>Team Ratings</h1>
+        <p class="subtitle">SRS · Adjusted Game Control · Adjusted Win Probability — 2021–2025</p>
+    </header>
+
+    <nav class="tabs">
+        <button class="tab active" data-tab="ratings">Team Ratings</button>
+        <button class="tab" data-tab="validation">Validation</button>
+        <button class="tab" data-tab="correlation">Correlation</button>
+    </nav>
+
+    <main>
+
+        <!-- ── Tab 1: Team Ratings ────────────────────────────────────────── -->
+        <section id="tab-ratings" class="tab-panel active">
+            <p class="section-desc">
+                Top and bottom 10 teams per season for each rating model. SRS adjusts for score differential,
+                Adj GC for time-weighted game control, and Adj AWP for pre-game win probability —
+                all opponent-adjusted via OLS regression.
+            </p>
+
+            <div class="controls">
+                <div class="control-group">
+                    <label for="season-select">Season</label>
+                    <select id="season-select">
+                        <option value="2025">2025</option>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                        <option value="2021">2021</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label for="model-select">Model</label>
+                    <select id="model-select">
+                        <option value="srs_rating">SRS (Score Differential)</option>
+                        <option value="gc_adj">Adj Game Control</option>
+                        <option value="awp_adj">Adj Win Probability</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="tables-row">
+                <section class="card">
+                    <h2>Best 10</h2>
+                    <div class="table-wrapper">
+                        <table id="top-table">
+                            <thead><tr><th>#</th><th>Team</th><th>Rating</th></tr></thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </section>
+                <section class="card">
+                    <h2>Worst 10</h2>
+                    <div class="table-wrapper">
+                        <table id="bottom-table">
+                            <thead><tr><th>#</th><th>Team</th><th>Rating</th></tr></thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </section>
+
+        <!-- ── Tab 2: Validation ─────────────────────────────────────────── -->
+        <section id="tab-validation" class="tab-panel">
+
+            <div class="sub-tabs">
+                <button class="sub-tab active" data-subtab="predictive">Predictive Performance</button>
+                <button class="sub-tab" data-subtab="repeatability">Repeatability</button>
+            </div>
+
+            <!-- Predictive -->
+            <div id="subtab-predictive" class="sub-panel active">
+                <p class="section-desc">
+                    The model that had the best predictive out of sample performance was the adjusted win probability model, followed by the adjusted game control model, and then the SRS model.
+                    To create these predictions, I split the data into first-half and second-half training and testing sets because it lets me demonstrate performance from the first half of the season to predict the second half.
+                    Typical machine learning approaches lean toward an 80/20 split; however, due to the small sample size of games and the overall flow of the season, where some teams schedule their easy games toward the beginning or end of the season, this accounts for true gameplay.
+                    The predictive performance was measured by the <strong>Brier score</strong>, which focuses on minimizing the average squared difference between the predicted probabilities and the actual outcome; lower is better for this metric.
+                    Additionally, <strong>log loss</strong> was used to measure performance, however, it penalizes confident, wrong predictions more — lower is better for this metric.
+                </p>
+                <div class="chart-card"><canvas id="brier-chart"></canvas></div>
+                <div class="chart-card" style="margin-top:1.5rem"><canvas id="logloss-chart"></canvas></div>
+                <div class="table-wrapper" style="margin-top:1.5rem">
+                    <table id="perf-table">
+                        <thead><tr><th>Season</th><th>Model</th><th>Brier Score</th><th>Log Loss</th></tr></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Repeatability -->
+            <div id="subtab-repeatability" class="sub-panel">
+                <p class="section-desc">
+                    The most reliable model was the win probability model, followed by SRS, and then the game control model.
+                    I chose the same split as the predictive split, where I split on the first half and second half of the season
+                    in order to optimize for low data points and applicability to the football season.
+                </p>
+                <div class="chart-card"><canvas id="repeat-chart"></canvas></div>
+                <div class="table-wrapper" style="margin-top:1.5rem">
+                    <table id="repeat-table">
+                        <thead><tr><th>Season</th><th>Model</th><th>Correlation</th></tr></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ── Tab 3: Correlation ─────────────────────────────────────────── -->
+        <section id="tab-correlation" class="tab-panel">
+            <p class="section-desc">
+                How much does opponent adjustment change a team's rating? A high correlation between raw and adjusted values
+                means the adjustment doesn't shift rankings much — teams that look good unadjusted still look good after
+                accounting for schedule difficulty. A lower correlation means the adjustment is doing real work,
+                surfacing teams whose raw numbers were inflated or deflated by schedule strength.
+            </p>
+            <div class="chart-card"><canvas id="corr-chart"></canvas></div>
+            <div class="table-wrapper" style="margin-top:1.5rem">
+                <table id="corr-table">
+                    <thead><tr><th>Season</th><th>Model</th><th>Correlation</th></tr></thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
