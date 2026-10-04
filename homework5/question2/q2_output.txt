@@ -1,0 +1,2 @@
+reading /projects/class/itcs5010_u01/SportsTrackingTransformer/data/BigDataBowl_2024/tracking_week_4.csv
+Animation saved to play_2022100210_<nfl.visuals.Play object at 0x7eff8fd86a90>.gif

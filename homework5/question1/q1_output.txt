@@ -1,0 +1,8 @@
+Host: gal-i9.charlotte.edu
+Run at: 2026-10-04 16:21:35.967798
+
+/projects/class/itcs5010_u01/SportsTrackingTransformer/data/BigDataBowl_2024/games.csv
+{'gameId': '2022101700', 'season': '2022', 'week': '6', 'gameDate': '10/17/2022', 'gameTimeEastern': '20:15:00', 'homeTeamAbbr': 'LAC', 'visitorTeamAbbr': 'DEN', 'homeFinalScore': '19', 'visitorFinalScore': '16'}
+
+/projects/class/itcs5010_u01/SportsTrackingTransformer/data/BigDataBowl_2024/games2.csv
+{'gameId': '2022101700', 'season': '2022', 'week': '6', 'gameDate': '10/17/2022', 'gameTimeEastern': '20:15:00', 'homeTeamAbbr': 'LAC', 'visitorTeamAbbr': 'DEN', 'homeFinalScore': '21', 'visitorFinalScore': '17'}
