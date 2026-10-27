@@ -1,0 +1,1 @@
+In the neural network architecture, I changed the dropout rate from 0.3 to 0.5. This changed the results because it caused the loss to be overall higher for the modified model when compared to the original model. 

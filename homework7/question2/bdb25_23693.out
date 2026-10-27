@@ -1,0 +1,61 @@
+
+------------- FOLD 1 ---------
+Loss at epoch 10: training: 0.2112, validation: 0.2408 // validation accuracy 0.8983
+Loss at epoch 20: training: 0.2046, validation: 0.2372 // validation accuracy 0.8993
+Loss at epoch 30: training: 0.1792, validation: 0.2358 // validation accuracy 0.8956
+Loss at epoch 40: training: 0.2028, validation: 0.2449 // validation accuracy 0.9105
+Loss at epoch 50: training: 0.1704, validation: 0.1961 // validation accuracy 0.9253
+------------- FOLD 2 ---------
+Loss at epoch 10: training: 0.2165, validation: 0.1618 // validation accuracy 0.9358
+Loss at epoch 20: training: 0.2157, validation: 0.1659 // validation accuracy 0.9383
+Loss at epoch 30: training: 0.2246, validation: 0.1598 // validation accuracy 0.9414
+Loss at epoch 40: training: 0.2023, validation: 0.1769 // validation accuracy 0.9292
+Loss at epoch 50: training: 0.1515, validation: 0.1463 // validation accuracy 0.9444
+------------- FOLD 3 ---------
+Loss at epoch 10: training: 0.2049, validation: 0.1789 // validation accuracy 0.9236
+Loss at epoch 20: training: 0.1708, validation: 0.2133 // validation accuracy 0.9268
+Loss at epoch 30: training: 0.1648, validation: 0.1664 // validation accuracy 0.9261
+Loss at epoch 40: training: 0.1438, validation: 0.1794 // validation accuracy 0.9296
+Loss at epoch 50: training: 0.1231, validation: 0.1631 // validation accuracy 0.9251
+------------- FOLD 4 ---------
+Loss at epoch 10: training: 0.1935, validation: 0.2263 // validation accuracy 0.9171
+Loss at epoch 20: training: 0.2829, validation: 0.2574 // validation accuracy 0.8988
+Loss at epoch 30: training: 0.1892, validation: 0.2296 // validation accuracy 0.9019
+Loss at epoch 40: training: 0.1984, validation: 0.2120 // validation accuracy 0.9101
+Loss at epoch 50: training: 0.1575, validation: 0.2189 // validation accuracy 0.9123
+------------- FOLD 5 ---------
+Loss at epoch 10: training: 0.2158, validation: 0.1752 // validation accuracy 0.9383
+Loss at epoch 20: training: 0.2085, validation: 0.2161 // validation accuracy 0.9172
+Loss at epoch 30: training: 0.1807, validation: 0.1642 // validation accuracy 0.9479
+Loss at epoch 40: training: 0.1672, validation: 0.1772 // validation accuracy 0.9375
+Loss at epoch 50: training: 0.1582, validation: 0.1847 // validation accuracy 0.9252
+------------- FOLD 1 ---------
+Loss at epoch 10: training: 0.5922, validation: 0.5810 // validation accuracy 0.7070
+Loss at epoch 20: training: 0.5229, validation: 0.5441 // validation accuracy 0.7318
+Loss at epoch 30: training: 0.4771, validation: 0.5366 // validation accuracy 0.7357
+Loss at epoch 40: training: 0.4142, validation: 0.5366 // validation accuracy 0.7422
+Loss at epoch 50: training: 0.3528, validation: 0.5868 // validation accuracy 0.7240
+------------- FOLD 2 ---------
+Loss at epoch 10: training: 0.5863, validation: 0.5906 // validation accuracy 0.6700
+Loss at epoch 20: training: 0.5300, validation: 0.5697 // validation accuracy 0.7197
+Loss at epoch 30: training: 0.4707, validation: 0.5482 // validation accuracy 0.7328
+Loss at epoch 40: training: 0.4157, validation: 0.5397 // validation accuracy 0.7393
+Loss at epoch 50: training: 0.3557, validation: 0.5688 // validation accuracy 0.7430
+------------- FOLD 3 ---------
+Loss at epoch 10: training: 0.5967, validation: 0.5865 // validation accuracy 0.6914
+Loss at epoch 20: training: 0.5490, validation: 0.5353 // validation accuracy 0.7422
+Loss at epoch 30: training: 0.5018, validation: 0.5310 // validation accuracy 0.7487
+Loss at epoch 40: training: 0.4561, validation: 0.4849 // validation accuracy 0.7865
+Loss at epoch 50: training: 0.3961, validation: 0.5016 // validation accuracy 0.7747
+------------- FOLD 4 ---------
+Loss at epoch 10: training: 0.5757, validation: 0.6018 // validation accuracy 0.6602
+Loss at epoch 20: training: 0.5345, validation: 0.5398 // validation accuracy 0.7305
+Loss at epoch 30: training: 0.4759, validation: 0.5472 // validation accuracy 0.7383
+Loss at epoch 40: training: 0.4256, validation: 0.5307 // validation accuracy 0.7513
+Loss at epoch 50: training: 0.3793, validation: 0.5123 // validation accuracy 0.7487
+------------- FOLD 5 ---------
+Loss at epoch 10: training: 0.5671, validation: 0.5948 // validation accuracy 0.6895
+Loss at epoch 20: training: 0.5215, validation: 0.5774 // validation accuracy 0.7052
+Loss at epoch 30: training: 0.4584, validation: 0.5838 // validation accuracy 0.6963
+Loss at epoch 40: training: 0.4116, validation: 0.6008 // validation accuracy 0.6975
+Loss at epoch 50: training: 0.3387, validation: 0.6778 // validation accuracy 0.7171
